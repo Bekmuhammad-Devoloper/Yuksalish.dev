@@ -133,11 +133,11 @@
   const BLURS = [0, 1.2, 3.5];            // fokusda → fokusdan tashqari
 
   // Qor parchasi
-  const SNOW = BLURS.concat(7).map((b) => sprite(32, (g, s) => {
+  const SNOW = [0, .5, 1.5, 4].map((b) => sprite(32, (g, s) => {
     const r = s / 2;
     const gr = g.createRadialGradient(0, 0, 0, 0, 0, r);
     gr.addColorStop(0, 'rgba(255,255,255,1)');
-    gr.addColorStop(.45, 'rgba(255,255,255,.85)');
+    gr.addColorStop(.55, 'rgba(255,255,255,.95)');
     gr.addColorStop(1, 'rgba(255,255,255,0)');
     g.fillStyle = gr;
     g.beginPath(); g.arc(0, 0, r, 0, 6.283); g.fill();
@@ -347,7 +347,7 @@
   let drops = [];
   function updateDrops() {
     const w = B.w[0] * N.lens;
-    const target = Math.round(42 * w * density);
+    const target = Math.round(60 * w * density);
     if (drops.length < target && Math.random() < .35) {
       const big = Math.random() < .3;
       drops.push({ x: rand(0, W), y: rand(0, H * .95), r: big ? rand(7, 13) : rand(2, 6.5), a: 0, vy: 0, life: 1, trail: 0, sx: rand(.85, 1.05) });
@@ -382,7 +382,7 @@
       if (d.a < .02) continue;
       const rx = d.r * d.sx, ry = d.r;
       ctx.save();
-      ctx.globalAlpha = d.a * .85;
+      ctx.globalAlpha = d.a;
       ctx.beginPath(); ctx.ellipse(d.x, d.y, rx, ry, 0, 0, 6.283); ctx.clip();
       // linza effekti: tomchi atrofidagi ~5 barobar katta hududni teskari ko‘rsatadi
       const span = d.r * 5.5 / m.s;
@@ -399,7 +399,7 @@
       body.addColorStop(1, 'rgba(20,28,34,.28)');
       ctx.fillStyle = body;
       ctx.beginPath(); ctx.ellipse(d.x, d.y, rx, ry, 0, 0, 6.283); ctx.fill();
-      ctx.strokeStyle = 'rgba(255,255,255,.18)'; ctx.lineWidth = Math.max(.6, d.r * .1);
+      ctx.strokeStyle = 'rgba(255,255,255,.4)'; ctx.lineWidth = Math.max(.7, d.r * .12);
       ctx.beginPath(); ctx.ellipse(d.x, d.y + d.r * .05, rx * .8, ry * .8, 0, .35, 2.8); ctx.stroke();
       ctx.fillStyle = 'rgba(255,255,255,.9)';
       ctx.beginPath(); ctx.ellipse(d.x - d.r * .32, d.y - d.r * .4, Math.max(.5, d.r * .16), Math.max(.4, d.r * .1), -.6, 0, 6.283); ctx.fill();
@@ -410,15 +410,15 @@
   /* ---------- havodagi zarrachalar ---------- */
   // z — chuqurlik: 0 uzoq (kichik, xira), 1 kameraga yaqin (katta, fokusdan tashqari)
   const TYPES = {
-    rain:  { max: 520, w: [1, 0, 0, 0],    rate: 18 },
-    petal: { max: 22,  w: [.8, .04, 0, 0], rate: 1 },
-    bird:  { max: 3,   w: [.25, 1, .4, 0], rate: .008 },
-    mote:  { max: 46,  w: [0, 1, .5, 0],   rate: 1 },
-    leaf:  { max: 40,  w: [0, 0, 1, 0],    rate: 1 },
-    snow:  { max: 620, w: [0, 0, 0, 1],    rate: 16 },
+    rain:  { max: 650, w: [1, 0, 0, 0],    rate: 22 },
+    petal: { max: 42,  w: [.9, .04, 0, 0], rate: 2 },
+    bird:  { max: 5,   w: [.25, 1, .4, 0], rate: .015 },
+    mote:  { max: 75,  w: [0, 1, .5, 0],   rate: 2 },
+    leaf:  { max: 65,  w: [0, 0, 1, 0],    rate: 2 },
+    snow:  { max: 820, w: [0, 0, 0, 1],    rate: 20 },
   };
   const BURST = ['petal', 'mote', 'leaf', 'snow'];
-  const blurIdx = (z, n) => Math.min(n - 1, Math.floor(Math.max(0, z - .55) / .45 * n));
+  const blurIdx = (z, n) => Math.min(n - 1, Math.floor(Math.max(0, z - .8) / .2 * n));   // faqat kameraga juda yaqinlari xira
   let parts = [];
 
   function spawn(type, x, y, burst, keepPhysics) {
@@ -436,7 +436,7 @@
         break;
       }
       case 'leaf':  p.x = rand(-W * .5, W * .9); p.y = -40; p.vx = rand(.4, 1.2); p.vy = .7 + z * 2; p.size = 9 + z * z * 46; p.rot = rand(0, 6.28); p.vr = rand(-.04, .04); p.flip = rand(.015, .05); p.sh = (Math.random() * 3) | 0; p.c = (Math.random() * LEAF_COLORS.length) | 0; break;
-      case 'snow':  p.x = rand(-W * .2, W * 1.2); p.y = rand(-60, -5); p.size = 2 + z * z * 26; p.vy = .35 + z * 1.9; break;
+      case 'snow':  p.x = rand(-W * .2, W * 1.2); p.y = rand(-60, -5); p.size = 3 + z * z * 20; p.vy = .45 + z * 1.9; break;
     }
     if (x !== undefined) { p.x = x; p.y = y; }
     if (keepPhysics) p.a = 0;
@@ -501,7 +501,7 @@
 
   function drawParticles(time) {
     // yomg‘ir: uchta chuqurlik qatlami, har biri bitta yo‘l bilan (tez)
-    const bands = [[0, .35, .09, .7], [.35, .7, .15, 1.1], [.7, 1.01, .2, 1.8]];
+    const bands = [[0, .35, .26, .9], [.35, .7, .38, 1.3], [.7, 1.01, .5, 2]];
     ctx.lineCap = 'round';
     for (const [z0, z1, al, lw] of bands) {
       ctx.beginPath();
@@ -512,17 +512,17 @@
         ctx.moveTo(p.x, p.y); ctx.lineTo(p.x - dx, p.y - p.len);
         any = true;
       }
-      if (any) { ctx.strokeStyle = `rgba(214,224,234,${al})`; ctx.lineWidth = lw; ctx.globalAlpha = 1; ctx.stroke(); }
+      if (any) { ctx.strokeStyle = `rgba(232,240,248,${al})`; ctx.lineWidth = lw; ctx.globalAlpha = 1; ctx.stroke(); }
     }
 
     for (const p of parts) {
       const a = p.a * (p.fade ?? 1);
       switch (p.type) {
         case 'petal':
-          drawSprite(PETAL[p.c][blurIdx(p.z, 3)], p.x, p.y, p.size, p.rot, .3 + Math.abs(Math.sin(p.ph * 1.4)) * .7, a * (.6 + p.z * .35));
+          drawSprite(PETAL[p.c][blurIdx(p.z, 3)], p.x, p.y, p.size, p.rot, .3 + Math.abs(Math.sin(p.ph * 1.4)) * .7, a * .95);
           break;
         case 'mote':
-          drawSprite(MOTE[p.z > .6 ? 1 : 0], p.x, p.y, p.size, 0, 1, a * (.35 + p.z * .5));
+          drawSprite(MOTE[p.z > .85 ? 1 : 0], p.x, p.y, p.size, 0, 1, a * (.7 + p.z * .3));
           break;
         case 'bird':
           ctx.globalAlpha = .65 * a;
@@ -540,12 +540,12 @@
           break;
         case 'leaf': {
           const flip = Math.cos(p.ph * 2);
-          const spr = LEAVES[p.sh][p.c][flip > 0 ? 0 : 1][p.z > .72 ? 1 : 0];
-          drawSprite(spr, p.x, p.y, p.size, p.rot, .12 + Math.abs(flip) * .88, a * (p.z > .72 ? .85 : .97));
+          const spr = LEAVES[p.sh][p.c][flip > 0 ? 0 : 1][p.z > .88 ? 1 : 0];
+          drawSprite(spr, p.x, p.y, p.size, p.rot, .12 + Math.abs(flip) * .88, a);
           break;
         }
         case 'snow':
-          drawSprite(SNOW[blurIdx(p.z, 4)], p.x, p.y, p.size, 0, 1, a * (.5 + p.z * .45));
+          drawSprite(SNOW[blurIdx(p.z, 4)], p.x, p.y, p.size, 0, 1, a * (.85 + p.z * .15));
           break;
       }
     }
