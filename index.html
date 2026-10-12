@@ -33,9 +33,12 @@
     <span>Yuksalish<b>.dev</b></span>
   </a>
   <nav aria-label="Asosiy">
-    <a href="#xizmatlar">Xizmatlar</a>
-    <a href="#ishlar">Ishlar</a>
-    <a href="#aloqa" class="nav-cta">Bog‘lanish</a>
+    <div class="nav-links">
+      <a href="#manifest">Biz haqimizda</a>
+      <a href="#xizmatlar">Xizmatlar</a>
+      <a href="#ishlar">Ishlar</a>
+    </div>
+    <a href="#aloqa" class="btn btn-primary btn-sm">Bog‘lanish<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
   </nav>
 </header>
 
@@ -53,17 +56,16 @@
 <main>
   <!-- NAVRO‘Z -->
   <section class="hero" id="top" data-s="0">
-    <p class="kicker"><span class="dot"></span>Raqamli mahsulotlar studiyasi</p>
-    <h1 class="wordmark" aria-label="Yuksalish.dev"><span class="wm" id="wordmark">Yuksalish</span><span class="wm-tld">.dev</span></h1>
+    <p class="kicker">Raqamli mahsulotlar studiyasi</p>
+    <h1 class="headline" id="headline">G‘oyangizni <span class="soft">cho‘qqiga olib chiqamiz.</span></h1>
     <div class="hero-row">
-      <p class="hero-lead">Saytlar, veb-ilovalar va Telegram botlar yaratamiz. G‘oyani birinchi eskizdan ishga tushirishgacha bitta jamoa olib boradi.</p>
-      <a class="cta" href="#aloqa">Loyiha boshlash<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="hero-lead">Saytlar, veb-ilovalar va Telegram botlar. Birinchi eskizdan ishga tushirishgacha loyihangizni bitta jamoa olib boradi.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#aloqa">Loyiha boshlash<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+        <a class="btn btn-glass" href="#ishlar">Ishlarimiz</a>
+      </div>
     </div>
-    <a class="ascend" href="#manifest">
-      <span>Cho‘qqi sari</span>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-      <span class="mono">Katta Chimyon · 3 309 m</span>
-    </a>
+    <a class="ascend" href="#manifest"><span class="ascend-line"></span>Pastga aylantiring<span class="ascend-meta">&nbsp;· Katta Chimyon, 3 309 m</span></a>
   </section>
 
   <section class="manifest" id="manifest">
@@ -203,7 +205,7 @@
         </div>
         <label class="field"><span>Loyiha haqida</span><textarea id="f-msg" name="message" rows="3" placeholder="Masalan: restoranimiz uchun buyurtma boti kerak"></textarea></label>
         <div class="form-foot">
-          <button class="cta" type="submit">Yuborish<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="btn btn-primary" type="submit">Yuborish<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></button>
           <p class="form-note" id="formNote" role="status"></p>
         </div>
       </form>

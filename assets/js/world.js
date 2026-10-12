@@ -90,13 +90,13 @@
   let box = { left: 0, top: 0, width: 1, height: 1 };
   function imageMap(k) {
     const im = imgs[k];
-    const iw = im.naturalWidth || 1536, ih = im.naturalHeight || 864;
+    const iw = im.naturalWidth || 1536, ih = im.naturalHeight || 1024;
     const s = Math.max(box.width / iw, box.height / ih);
     return { s, dx: box.left + (box.width - iw * s) * OBJ_POS[0], dy: box.top + (box.height - ih * s) * OBJ_POS[1] };
   }
   function toScreen(k, u, v) {
     const m = imageMap(k), im = imgs[k];
-    return { x: m.dx + u * (im.naturalWidth || 1536) * m.s, y: m.dy + v * (im.naturalHeight || 864) * m.s };
+    return { x: m.dx + u * (im.naturalWidth || 1536) * m.s, y: m.dy + v * (im.naturalHeight || 1024) * m.s };
   }
 
   function updatePhotos(time) {
@@ -287,7 +287,7 @@
   function drawRays(time) {
     if (N.rays < .01) return;
     // Kuz suratida quyosh chap chetda, ufqda
-    const sun = toScreen(2, .0, .47);
+    const sun = toScreen(2, .044, .31);
     const ox = sun.x, oy = sun.y;
     ctx.save();
     ctx.globalCompositeOperation = 'screen';
@@ -584,8 +584,25 @@
   const words = [...manifestText.children];
   let lastWords = -1;
 
-  const wm = $('#wordmark');
-  wm.innerHTML = [...wm.textContent].map((ch, i) => `<i style="--i:${i}">${ch}</i>`).join('');
+  // Sarlavha so‘zlari pastdan birin-ketin ko‘tariladi
+  const headline = $('#headline');
+  let wi = 0;
+  const splitWords = (node) => {
+    for (const n of [...node.childNodes]) {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+          const w = document.createElement('span'); w.className = 'w';
+          w.innerHTML = `<i style="--i:${wi++}">${part}</i>`;
+          frag.appendChild(w);
+        });
+        n.replaceWith(frag);
+      } else splitWords(n);
+    }
+  };
+  splitWords(headline);
 
   const works = $('#ishlar'), track = $('#worksTrack'), worksBar = $('#worksBar');
   const wide = matchMedia('(min-width: 861px)');
