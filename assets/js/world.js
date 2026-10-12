@@ -38,7 +38,7 @@
     light:  ['#fff1d8', '#fff6dc', '#ffc27a', '#b9c4ff'],
   };
   const NUM = {
-    fog:     [.42, .04, .2, .22],   // vodiy tumani
+    fog:     [.3, .04, .18, .2],    // vodiy tumani
     rays:    [.15, .1, .5, 0],      // quyosh nurlari
     veil:    [.1, 0, .02, .06],     // havodagi namlik pardasi
     wind:    [.6, .15, 2.2, .7],

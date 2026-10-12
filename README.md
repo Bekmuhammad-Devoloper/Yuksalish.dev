@@ -14,8 +14,6 @@ Orqa fon — bitta kompozitsiyadagi 4 ta fotorealistik surat (`assets/img/bahor|
 bir-biriga o‘tadi. Ustida `canvas`da real ob-havo: chuqurlikka ega yomg‘ir va qor (bokeh), aylanib tushayotgan
 barglar, gulbarglar, suzuvchi vodiy tumani, quyosh nurlari.
 
-> **Diqqat:** hozirgi `assets/img/*.jpg` — vaqtinchalik past sifatli nusxalar. To‘liq o‘lchamli suratlar bilan
-> almashtirilishi kerak (bir xil fayl nomlari, 1536×864 yoki kattaroq).
 
 Interaktivlik: sichqoncha parallaksi, bo‘sh joyga bosganda faslga mos zarrachalar, o‘ng tomonda
 altimetr, so‘zma-so‘z ochiladigan manifest, gorizontal portfolio galereyasi, email nusxalash.
