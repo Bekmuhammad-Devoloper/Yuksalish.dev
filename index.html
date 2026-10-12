@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yuksalish.dev — g‘oyadan natijagacha</title>
+  <meta name="description" content="Yuksalish.dev — veb-saytlar, ilovalar va raqamli mahsulotlar yaratadigan jamoa.">
+  <meta name="theme-color" content="#79b6de">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2313202c'/%3E%3Cpath d='M16 26V14M16 18c-5 0-7-3-7-7 5 0 7 3 7 7zm0-3c0-4 2-7 7-7 0 4-2 7-7 7z' stroke='%238fd16a' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ============ MANZARA (bitta, doimiy) ============ -->
+<svg id="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" style="stop-color:var(--sky0)"/>
+      <stop offset="1" style="stop-color:var(--sky1)"/>
+    </linearGradient>
+    <radialGradient id="glowGrad">
+      <stop offset="0" style="stop-color:var(--glow);stop-opacity:.75"/>
+      <stop offset="1" style="stop-color:var(--glow);stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="lakeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" style="stop-color:var(--lake0)"/>
+      <stop offset="1" style="stop-color:var(--lake1)"/>
+    </linearGradient>
+    <linearGradient id="hazeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".9"/>
+    </linearGradient>
+
+    <g id="cloudShape" style="fill:var(--cloud)">
+      <ellipse cx="0" cy="0" rx="72" ry="26"/>
+      <ellipse cx="-42" cy="6" rx="46" ry="20"/>
+      <ellipse cx="46" cy="5" rx="50" ry="21"/>
+      <ellipse cx="4" cy="-18" rx="46" ry="30"/>
+      <ellipse cx="-24" cy="-8" rx="30" ry="22"/>
+    </g>
+
+    <g id="pineShape">
+      <rect x="-5" y="-16" width="10" height="16" fill="#5a3d2b"/>
+      <g style="fill:var(--pine)">
+        <path d="M0 -122 L-26 -70 L26 -70Z"/>
+        <path d="M0 -96 L-36 -42 L36 -42Z"/>
+        <path d="M0 -72 L-46 -14 L46 -14Z"/>
+      </g>
+      <g fill="#fff" style="opacity:var(--snow-op)">
+        <path d="M0 -122 L-13 -96 L-6 -99 L0 -93 L7 -99 L13 -96Z"/>
+        <path d="M-26 -70 L26 -70 L21 -76 L-21 -76Z"/>
+        <path d="M-36 -42 L36 -42 L31 -48 L-31 -48Z"/>
+        <path d="M-46 -14 L46 -14 L40 -21 L-40 -21Z"/>
+      </g>
+    </g>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#skyGrad)"/>
+
+  <!-- quyosh -->
+  <g id="sunG">
+    <circle r="220" fill="url(#glowGrad)"/>
+    <circle id="sun" r="60" style="fill:var(--sun)"/>
+  </g>
+
+  <!-- kamalak (bahor) -->
+  <g fill="none" stroke-width="9" style="opacity:var(--rainbow-op)">
+    <path d="M620 760 A400 400 0 0 1 1420 760" stroke="#ff6b6b"/>
+    <path d="M629 760 A391 391 0 0 1 1411 760" stroke="#ffb15c"/>
+    <path d="M638 760 A382 382 0 0 1 1402 760" stroke="#ffe066"/>
+    <path d="M647 760 A373 373 0 0 1 1393 760" stroke="#7bd88f"/>
+    <path d="M656 760 A364 364 0 0 1 1384 760" stroke="#5cb8ff"/>
+    <path d="M665 760 A355 355 0 0 1 1375 760" stroke="#9b7bff"/>
+  </g>
+
+  <!-- bulutlar -->
+  <g id="clouds" style="opacity:var(--cloud-op)">
+    <use href="#cloudShape" class="cloud" data-x="80"   data-y="150" data-s="1"   data-k="1.2"/>
+    <use href="#cloudShape" class="cloud" data-x="620"  data-y="95"  data-s=".7"  data-k=".9"/>
+    <use href="#cloudShape" class="cloud" data-x="1100" data-y="190" data-s="1.2" data-k="1.05"/>
+    <use href="#cloudShape" class="cloud" data-x="1550" data-y="120" data-s=".85" data-k="1.35"/>
+    <use href="#cloudShape" class="cloud" data-x="1900" data-y="230" data-s="1.1" data-k=".75"/>
+  </g>
+
+  <!-- uzoq tog‘lar -->
+  <g id="layerFar">
+    <path style="fill:var(--mt-far)" d="M0 600 L150 470 L260 520 L430 340 L560 470 L700 400 L840 480 L1010 330 L1160 460 L1290 400 L1450 300 L1600 420 L1600 900 L0 900Z"/>
+    <path fill="#fff" style="opacity:var(--caps-op)" d="M430 340 L392 380 L412 372 L432 388 L452 372 L472 382Z M1010 330 L967 368 L990 362 L1010 378 L1030 362 L1056 370Z M1450 300 L1383 342 L1410 336 L1440 352 L1470 336 L1506 345Z M700 400 L676 418 L690 416 L702 424 L714 414 L726 420Z"/>
+    <rect y="330" width="1600" height="330" fill="url(#hazeGrad)" style="opacity:var(--haze-op)"/>
+  </g>
+
+  <!-- o‘rta qatlam -->
+  <g id="layerMid">
+    <path style="fill:var(--mt-near)" d="M0 640 C 120 600, 220 560, 330 580 C 440 600, 520 640, 640 610 C 760 580, 860 540, 980 570 C 1100 600, 1200 630, 1320 600 C 1430 575, 1520 560, 1600 580 L1600 900 L0 900Z"/>
+    <path style="fill:var(--hill)" d="M0 700 C 200 650, 380 660, 560 690 C 720 715, 860 700, 1000 680 C 1180 655, 1380 660, 1600 690 L1600 900 L0 900Z"/>
+
+    <!-- archalar (orqa) -->
+    <use href="#pineShape" transform="translate(1340 678) scale(.8)"/>
+    <use href="#pineShape" transform="translate(1440 684) scale(1)"/>
+    <use href="#pineShape" transform="translate(1520 692) scale(.75)"/>
+    <use href="#pineShape" transform="translate(110 690) scale(.85)"/>
+    <use href="#pineShape" transform="translate(190 684) scale(1.05)"/>
+
+    <!-- uy -->
+    <g id="house">
+      <rect id="chimney" x="1232" y="596" width="14" height="40" fill="#7a4a3a"/>
+      <rect x="1150" y="650" width="110" height="72" style="fill:var(--wall)"/>
+      <path d="M1138 654 L1205 600 L1272 654Z" style="fill:var(--roof)"/>
+      <path d="M1134 656 L1205 596 L1276 656 L1268 661 L1205 609 L1142 661Z" fill="#fff" style="opacity:var(--snow-op)"/>
+      <rect x="1168" y="680" width="22" height="42" fill="#6b4a35"/>
+      <rect x="1208" y="668" width="32" height="26" fill="#3b4a5a"/>
+      <rect x="1208" y="668" width="32" height="26" fill="#ffcf6e" style="opacity:var(--window-op)"/>
+      <path d="M1224 668 V694 M1208 681 H1240" style="stroke:var(--wall)" stroke-width="3"/>
+    </g>
+
+    <!-- ko‘l -->
+    <path d="M680 735 C 760 705, 1040 705, 1120 735 C 1040 765, 760 765, 680 735Z" fill="url(#lakeGrad)"/>
+    <g stroke="#fff" stroke-linecap="round" class="ripples" style="opacity:calc(.55 - var(--ice-op) * .55)">
+      <path d="M780 728 H860" stroke-width="2"/>
+      <path d="M900 740 H1000" stroke-width="2"/>
+      <path d="M820 748 H870" stroke-width="1.5"/>
+      <path d="M960 724 H1030" stroke-width="1.5"/>
+    </g>
+    <g stroke="#fff" stroke-width="1.5" fill="none" style="opacity:var(--ice-op)">
+      <path d="M760 730 L820 738 L860 728 L930 742 L990 732"/>
+      <path d="M860 728 L875 712 M930 742 L950 756 M990 732 L1050 740"/>
+    </g>
+  </g>
+
+  <!-- old qatlam -->
+  <g id="layerNear">
+    <path style="fill:var(--ground)" d="M0 770 C 260 740, 520 745, 760 760 C 1000 775, 1300 745, 1600 755 L1600 900 L0 900Z"/>
+    <g id="grass" style="opacity:var(--grass-op);stroke:var(--grass)" fill="none" stroke-width="3" stroke-linecap="round"></g>
+    <g id="flowers" style="opacity:var(--flower-op)"></g>
+
+    <!-- katta daraxt -->
+    <g id="tree">
+      <ellipse cx="560" cy="752" rx="120" ry="12" fill="#000" opacity=".12"/>
+      <path d="M546 752 C 550 690, 552 650, 545 600 L 577 600 C 569 650, 571 690, 576 752Z" style="fill:var(--trunk)"/>
+      <g fill="none" style="stroke:var(--trunk)" stroke-linecap="round">
+        <path stroke-width="10" d="M558 640 C 530 610, 505 590, 470 562"/>
+        <path stroke-width="10" d="M566 625 C 600 595, 630 572, 662 548"/>
+        <path stroke-width="9"  d="M561 605 C 556 565, 560 530, 566 482"/>
+        <path stroke-width="7"  d="M552 612 C 522 582, 500 545, 506 506"/>
+        <path stroke-width="7"  d="M570 610 C 602 572, 612 540, 624 508"/>
+        <path stroke-width="4"  d="M470 562 C 450 548, 440 530, 436 512 M662 548 C 680 530, 690 512, 692 494 M566 482 C 580 466, 586 452, 590 440 M506 506 C 495 490, 480 482, 466 478"/>
+      </g>
+      <g style="opacity:var(--canopy-op)">
+        <g style="fill:var(--canopy2)">
+          <circle cx="478" cy="566" r="56"/><circle cx="648" cy="560" r="56"/>
+          <circle cx="510" cy="500" r="58"/><circle cx="618" cy="498" r="58"/>
+        </g>
+        <g style="fill:var(--canopy)">
+          <circle cx="562" cy="476" r="66"/><circle cx="520" cy="548" r="56"/>
+          <circle cx="606" cy="548" r="56"/><circle cx="562" cy="590" r="44"/>
+          <circle cx="465" cy="520" r="40"/><circle cx="662" cy="516" r="40"/>
+        </g>
+        <g id="blossoms" style="opacity:var(--blossom-op)"></g>
+        <g id="apples" style="opacity:var(--apple-op)"></g>
+      </g>
+    </g>
+
+    <!-- qovoqlar (kuz) -->
+    <g style="opacity:var(--pumpkin-op)">
+      <g transform="translate(420 812)"><ellipse rx="17" ry="13" fill="#e8781e"/><path d="M-6 -12 C -8 0, -8 6, -6 12 M6 -12 C 8 0, 8 6, 6 12" stroke="#c45e10" stroke-width="2" fill="none"/><path d="M0 -12 L3 -20" stroke="#4d6b2a" stroke-width="3" stroke-linecap="round"/></g>
+      <g transform="translate(458 822) scale(.75)"><ellipse rx="17" ry="13" fill="#f0902b"/><path d="M-6 -12 C -8 0, -8 6, -6 12 M6 -12 C 8 0, 8 6, 6 12" stroke="#c45e10" stroke-width="2" fill="none"/><path d="M0 -12 L3 -20" stroke="#4d6b2a" stroke-width="3" stroke-linecap="round"/></g>
+      <g transform="translate(1040 812) scale(1.1)"><ellipse rx="17" ry="13" fill="#e26f17"/><path d="M-6 -12 C -8 0, -8 6, -6 12 M6 -12 C 8 0, 8 6, 6 12" stroke="#b9530c" stroke-width="2" fill="none"/><path d="M0 -12 L3 -20" stroke="#4d6b2a" stroke-width="3" stroke-linecap="round"/></g>
+    </g>
+
+    <!-- qorodam (qish) -->
+    <g transform="translate(300 812)" style="opacity:var(--snowman-op)">
+      <ellipse cy="14" rx="40" ry="8" fill="#000" opacity=".08"/>
+      <circle cy="-6" r="30" fill="#fff" stroke="#d3dce5" stroke-width="2"/>
+      <circle cy="-52" r="22" fill="#fff" stroke="#d3dce5" stroke-width="2"/>
+      <circle cy="-86" r="15" fill="#fff" stroke="#d3dce5" stroke-width="2"/>
+      <circle cx="-5" cy="-89" r="2" fill="#253240"/><circle cx="5" cy="-89" r="2" fill="#253240"/>
+      <path d="M0 -84 L16 -81 L0 -79Z" fill="#f08a24"/>
+      <path d="M-15 -70 Q0 -62 15 -70 L15 -64 Q0 -57 -15 -64Z" fill="#d6304a"/>
+      <path d="M10 -66 L14 -48 L20 -49 L16 -66Z" fill="#d6304a"/>
+      <circle cy="-54" r="2.4" fill="#253240"/><circle cy="-44" r="2.4" fill="#253240"/>
+      <path d="M-20 -54 L-46 -70 M-38 -65 L-44 -76 M20 -54 L44 -72" stroke="#6b4a35" stroke-width="3" stroke-linecap="round"/>
+      <path d="M-14 -100 H14 M-10 -100 V-116 H10 V-100" stroke="#253240" stroke-width="4" fill="#253240"/>
+    </g>
+  </g>
+</svg>
+
+<canvas id="weather" aria-hidden="true"></canvas>
+
+<!-- ============ NAVIGATSIYA ============ -->
+<header class="topbar">
+  <a href="#bahor" class="logo" aria-label="Yuksalish.dev — bosh sahifa">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#13202c"/><path d="M16 26V14M16 18c-5 0-7-3-7-7 5 0 7 3 7 7zm0-3c0-4 2-7 7-7 0 4-2 7-7 7z" stroke="var(--accent)" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+    <span>Yuksalish<b>.dev</b></span>
+  </a>
+  <nav class="links" aria-label="Asosiy">
+    <a href="#bahor">Biz haqimizda</a>
+    <a href="#yoz">Xizmatlar</a>
+    <a href="#kuz">Ishlar</a>
+    <a href="#qish">Aloqa</a>
+  </nav>
+  <a href="#qish" class="btn btn-sm">Loyiha boshlash</a>
+</header>
+
+<nav class="rail" aria-label="Fasllar">
+  <div class="rail-track"><div class="rail-fill"></div></div>
+  <a href="#bahor" data-i="0"><i></i><span>Bahor</span></a>
+  <a href="#yoz"   data-i="1"><i></i><span>Yoz</span></a>
+  <a href="#kuz"   data-i="2"><i></i><span>Kuz</span></a>
+  <a href="#qish"  data-i="3"><i></i><span>Qish</span></a>
+</nav>
+
+<div class="wx" aria-live="polite">
+  <span class="wx-icon" id="wxIcon">🌧️</span>
+  <span><b id="wxName">Bahor</b><small id="wxDesc">Yomg‘irli</small></span>
+  <span class="wx-temp" id="wxTemp">+16°</span>
+</div>
+
+<!-- ============ KONTENT ============ -->
+<main>
+  <section id="bahor" class="season" data-season="0">
+    <div class="wrap">
+      <div class="panel hero reveal">
+        <p class="eyebrow"><span>01</span> Bahor · G‘oya</p>
+        <h1>G‘oyalar <em>unib chiqadigan</em> joy.</h1>
+        <p class="lead">Yuksalish.dev — veb-saytlar, ilovalar va raqamli mahsulotlar yaratadigan jamoa. Har bir loyihani urug‘dek parvarishlaymiz: g‘oyadan boshlab, hosil bergunicha.</p>
+        <div class="actions">
+          <a href="#kuz" class="btn">Ishlarimizni ko‘rish</a>
+          <a href="#qish" class="btn btn-ghost">Bog‘lanish</a>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span class="mouse"><i></i></span>Aylantiring — fasllar almashadi</div>
+    </div>
+  </section>
+
+  <section id="yoz" class="season" data-season="1">
+    <div class="wrap">
+      <div class="panel wide reveal">
+        <p class="eyebrow"><span>02</span> Yoz · O‘sish</p>
+        <h2>Loyihangiz quyosh ostida <em>gullaydi</em>.</h2>
+        <div class="services">
+          <article class="card">
+            <div class="ico">⌘</div>
+            <h3>Veb-saytlar</h3>
+            <p>Landing, korporativ sayt va onlayn do‘konlar — tez, chiroyli va qidiruvga mos.</p>
+          </article>
+          <article class="card">
+            <div class="ico">◧</div>
+            <h3>Veb-ilovalar</h3>
+            <p>CRM, kabinetlar va ichki tizimlar — biznesingiz jarayonlariga moslab.</p>
+          </article>
+          <article class="card">
+            <div class="ico">✦</div>
+            <h3>Telegram botlar</h3>
+            <p>Buyurtma, to‘lov va mijozlar bilan aloqani avtomatlashtiruvchi botlar.</p>
+          </article>
+          <article class="card">
+            <div class="ico">◐</div>
+            <h3>UI/UX dizayn</h3>
+            <p>Brend uslubi, interfeys va prototiplar — foydalanuvchi uchun qulay.</p>
+          </article>
+        </div>
+        <ol class="process">
+          <li><b>01</b>Tahlil</li>
+          <li><b>02</b>Dizayn</li>
+          <li><b>03</b>Ishlab chiqish</li>
+          <li><b>04</b>Ishga tushirish</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="kuz" class="season" data-season="2">
+    <div class="wrap">
+      <div class="panel wide reveal">
+        <p class="eyebrow"><span>03</span> Kuz · Hosil</p>
+        <h2>Hosil vaqti: <em>natijalar</em> gapiradi.</h2>
+        <div class="works">
+          <a class="work" href="#qish">
+            <div class="thumb t1"><span></span><span></span><span></span></div>
+            <h3>Onlayn do‘kon</h3>
+            <p>E-commerce · Katalog · To‘lov</p>
+          </a>
+          <a class="work" href="#qish">
+            <div class="thumb t2"><span></span><span></span><span></span></div>
+            <h3>Ta’lim platformasi</h3>
+            <p>Veb-ilova · Kurslar · Kabinet</p>
+          </a>
+          <a class="work" href="#qish">
+            <div class="thumb t3"><span></span><span></span><span></span></div>
+            <h3>Buyurtma boti</h3>
+            <p>Telegram · Menyu · Yetkazish</p>
+          </a>
+          <a class="work" href="#qish">
+            <div class="thumb t4"><span></span><span></span><span></span></div>
+            <h3>Korporativ sayt</h3>
+            <p>Brending · Landing · SEO</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="qish" class="season" data-season="3">
+    <div class="wrap">
+      <div class="panel contact reveal">
+        <div>
+          <p class="eyebrow"><span>04</span> Qish · Yangi bosqich</p>
+          <h2>Keyingi mavsumni <em>birga</em> quramiz.</h2>
+          <p class="lead">Qish — yangi bahorga tayyorgarlik vaqti. G‘oyangizni yozib qoldiring, tez orada siz bilan bog‘lanamiz.</p>
+          <ul class="contacts">
+            <li><span>Telegram</span><a href="https://t.me/yuksalish_dev" target="_blank" rel="noopener">@yuksalish_dev</a></li>
+            <li><span>Email</span><a href="mailto:hello@yuksalish.dev">hello@yuksalish.dev</a></li>
+            <li><span>Telefon</span><a href="tel:+998900000000">+998 90 000 00 00</a></li>
+          </ul>
+        </div>
+        <form class="form" id="contactForm">
+          <label>Ismingiz<input name="name" required autocomplete="name" placeholder="Ism Familiya"></label>
+          <label>Telefon yoki Telegram<input name="contact" required placeholder="+998 … yoki @username"></label>
+          <label>Loyiha haqida<textarea name="message" rows="4" placeholder="Qanday g‘oya ustida ishlayapsiz?"></textarea></label>
+          <button class="btn" type="submit">Yuborish</button>
+        </form>
+      </div>
+      <footer class="foot">© <span id="year">2026</span> Yuksalish.dev — har fasl o‘sishda.</footer>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/scene.js"></script>
+</body>
+</html>
