@@ -10,8 +10,12 @@ Chimyon tog‘lari bo‘ylab Katta Chimyon cho‘qqisiga (3 309 m) ko‘tariladi
 | Ishlar | Mezon (kuz) | 2 700 m | oltin soat, shamol, chinor barglari, mo‘ridan tutun |
 | Aloqa | Chilla (qish) | 3 309 m | kechki osmon, oy va yulduzlar, qor, uyda chiroq |
 
-Manzara `canvas`da protsedur tarzda chiziladi: 6 qatlamli tog‘ tizmalari, havo perspektivasi,
-qor chizig‘i, vodiy tumani, daraxtlar va uy. Ustida ob-havo zarrachalari.
+Orqa fon — bitta kompozitsiyadagi 4 ta fotorealistik surat (`assets/img/bahor|yoz|kuz|qish.jpg`), skroll bilan
+bir-biriga o‘tadi. Ustida `canvas`da real ob-havo: chuqurlikka ega yomg‘ir va qor (bokeh), aylanib tushayotgan
+barglar, gulbarglar, suzuvchi vodiy tumani, quyosh nurlari.
+
+> **Diqqat:** hozirgi `assets/img/*.jpg` — vaqtinchalik past sifatli nusxalar. To‘liq o‘lchamli suratlar bilan
+> almashtirilishi kerak (bir xil fayl nomlari, 1536×864 yoki kattaroq).
 
 Interaktivlik: sichqoncha parallaksi, bo‘sh joyga bosganda faslga mos zarrachalar, o‘ng tomonda
 altimetr, so‘zma-so‘z ochiladigan manifest, gorizontal portfolio galereyasi, email nusxalash.

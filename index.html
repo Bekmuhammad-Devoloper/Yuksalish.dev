@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Yuksalish.dev</title>
   <meta name="description" content="Yuksalish.dev — saytlar, veb-ilovalar va Telegram botlar yaratadigan raqamli mahsulotlar studiyasi.">
-  <meta name="theme-color" content="#9cc6e4">
+  <meta name="theme-color" content="#1a2420">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2315211b'/%3E%3Cpath d='M4 25 L12 13 L16 18 L21 9 L28 25Z' fill='%23f6e1cf'/%3E%3Cpath d='M21 9 L18.6 13.4 L21 12.4 L23.2 13.6Z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="assets/img/bahor.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Martian+Mono:wght@400;500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,7 +15,16 @@
 </head>
 <body>
 
+<div class="backdrop" aria-hidden="true">
+  <div class="photos" id="photos">
+    <img src="assets/img/bahor.jpg" alt="" fetchpriority="high" decoding="async">
+    <img src="assets/img/yoz.jpg" alt="" decoding="async">
+    <img src="assets/img/kuz.jpg" alt="" decoding="async">
+    <img src="assets/img/qish.jpg" alt="" decoding="async">
+  </div>
+</div>
 <canvas id="world" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
@@ -124,23 +134,23 @@
         <h2>Tanlangan ishlar</h2>
       </header>
       <div class="works-track" id="worksTrack">
-        <a class="work" href="#aloqa" style="--a:#f3c9d4;--b:#9cc6e4;--r1:#7fa595;--r2:#3f7a45">
-          <div class="cover"><span class="cover-word">Do‘kon</span></div>
+        <a class="work" href="#aloqa">
+          <div class="cover" style="background-image:url(assets/img/bahor.jpg);background-position:22% 70%"><span class="cover-word">Do‘kon</span></div>
           <div class="work-meta"><h3>Onlayn do‘kon</h3><span class="mono">E-commerce · 2026</span></div>
           <p>Katalog, savat va onlayn to‘lov. Admin panel orqali tovarlarni o‘zingiz boshqarasiz.</p>
         </a>
-        <a class="work" href="#aloqa" style="--a:#e2f2f8;--b:#3f8fd8;--r1:#6f9d8c;--r2:#2f6e35">
-          <div class="cover"><span class="cover-word">Ta’lim</span></div>
+        <a class="work" href="#aloqa">
+          <div class="cover" style="background-image:url(assets/img/yoz.jpg);background-position:80% 40%"><span class="cover-word">Ta’lim</span></div>
           <div class="work-meta"><h3>Ta’lim platformasi</h3><span class="mono">Veb-ilova · 2026</span></div>
           <p>Video darslar, testlar va o‘quvchi kabineti. O‘qituvchi uchun alohida panel.</p>
         </a>
-        <a class="work" href="#aloqa" style="--a:#f8dfb0;--b:#d99a76;--r1:#b48868;--r2:#7a3f1e">
-          <div class="cover"><span class="cover-word">Bot</span></div>
+        <a class="work" href="#aloqa">
+          <div class="cover" style="background-image:url(assets/img/kuz.jpg);background-position:15% 75%"><span class="cover-word">Bot</span></div>
           <div class="work-meta"><h3>Buyurtma boti</h3><span class="mono">Telegram · 2025</span></div>
           <p>Menyu, savat, yetkazib berish manzili va to‘lov. Buyurtmalar oshxonaga darhol tushadi.</p>
         </a>
-        <a class="work" href="#aloqa" style="--a:#b9819a;--b:#161d3a;--r1:#5d5b86;--r2:#aeb6d6">
-          <div class="cover"><span class="cover-word">Klinika</span></div>
+        <a class="work" href="#aloqa">
+          <div class="cover" style="background-image:url(assets/img/qish.jpg);background-position:65% 70%"><span class="cover-word">Klinika</span></div>
           <div class="work-meta"><h3>Klinika sayti</h3><span class="mono">Korporativ · 2025</span></div>
           <p>Shifokorlar, xizmatlar va onlayn navbatga yozilish.</p>
         </a>
