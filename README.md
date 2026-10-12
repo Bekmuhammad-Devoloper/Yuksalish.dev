@@ -1,29 +1,31 @@
-# Yuksalish.dev — fasllar landingi
+# Yuksalish.dev
 
-Interaktiv brend landing sahifasi: bitta doimiy manzara (tog‘lar, ko‘l, daraxt, uy) skroll qilinganda
-**Bahor → Yoz → Kuz → Qish** bo‘lib almashadi.
+Brend landing sahifasi. Konsepsiya — **yuksalish = cho‘qqiga ko‘tarilish**: skroll qilganda kamera
+Chimyon tog‘lari bo‘ylab Katta Chimyon cho‘qqisiga (3 309 m) ko‘tariladi, manzara esa to‘rt fasldan o‘tadi.
 
-| Bo‘lim | Fasl | Ob-havo va manzara |
-|---|---|---|
-| Biz haqimizda | Bahor | yomg‘ir, gulbarglar, kamalak, gullagan daraxt |
-| Xizmatlar | Yoz | yorqin quyosh, qushlar, uchar nurlar |
-| Ishlar | Kuz | shamol, to‘kilayotgan barglar, olmalar, qovoqlar, mo‘ridan tutun |
-| Aloqa | Qish | qor, muzlagan ko‘l, qorli archalar, qorodam |
+| Bo‘lim | Fasl | Balandlik | Manzara |
+|---|---|---|---|
+| Bosh sahifa, manifest | Navro‘z (bahor) | 1 600 m | tongi tuman, yengil yomg‘ir, o‘rik gullari, kamalak ranglari |
+| Xizmatlar | Saraton (yoz) | 2 100 m | baland quyosh, qaldirg‘ochlar, quyosh zarralari |
+| Ishlar | Mezon (kuz) | 2 700 m | oltin soat, shamol, chinor barglari, mo‘ridan tutun |
+| Aloqa | Chilla (qish) | 3 309 m | kechki osmon, oy va yulduzlar, qor, uyda chiroq |
 
-Qo‘shimcha interaktivlik: sichqoncha bilan parallaks, bo‘sh joyga bosganda faslga mos “portlash”
-(gulbarg / nur / barg / qor), o‘ngdagi fasl navigatsiyasi va pastdagi harorat vidjeti.
+Manzara `canvas`da protsedur tarzda chiziladi: 6 qatlamli tog‘ tizmalari, havo perspektivasi,
+qor chizig‘i, vodiy tumani, daraxtlar va uy. Ustida ob-havo zarrachalari.
+
+Interaktivlik: sichqoncha parallaksi, bo‘sh joyga bosganda faslga mos zarrachalar, o‘ng tomonda
+altimetr, so‘zma-so‘z ochiladigan manifest, gorizontal portfolio galereyasi, email nusxalash.
 
 ## Ishga tushirish
 
-Hech qanday build kerak emas — oddiy statik sayt:
+Build kerak emas:
 
 ```bash
-npx serve .        # yoki index.html ni brauzerda oching
+npx serve .
 ```
 
 ## Tahrirlash
 
-- Matnlar va aloqa ma’lumotlari — `index.html` (Telegram, email, telefon hozircha namunaviy).
-- Forma `assets/js/scene.js` oxiridagi `mailto:` manziliga yuboradi.
-- Fasl ranglari, harorat va ob-havo kuchi — `assets/js/scene.js` dagi `COLORS`, `NUMBERS`, `TYPES`.
-- Uslublar — `assets/css/style.css`.
+- Matnlar, aloqa ma’lumotlari va portfolio — `index.html` (Telegram, email, telefon va loyihalar hozircha namunaviy).
+- Fasl ranglari, harorat, ob-havo kuchi — `assets/js/world.js` dagi `PAL`, `NUM`, `TYPES`.
+- Forma `mailto:` orqali yuboradi — `sendForm()` funksiyasida o‘zgartirish mumkin (masalan, Telegram bot API).
