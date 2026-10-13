@@ -207,7 +207,7 @@ main { position: relative; z-index: 3; }
 .person-initials { font: 500 clamp(40px, 5vw, 72px)/1 var(--f-display); letter-spacing: -.04em; color: var(--gold); opacity: .9; }
 .person-photo.has-photo .person-initials { display: none; }
 .person-body { padding: clamp(20px, 2.4vw, 32px); display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.person-body .person-links, .person-body .person-skills:last-child { margin-top: auto; }
+.person-now { margin-top: auto !important; }
 .person-role { margin: 0; color: var(--gold); }
 .person h3 { margin: -4px 0 0; font: 500 clamp(24px, 2.4vw, 32px)/1.05 var(--f-display); letter-spacing: -.04em; }
 .person-bio { margin: 0; font-size: 15px; line-height: 1.6; color: color-mix(in srgb, var(--paper-ink) 80%, transparent); }
