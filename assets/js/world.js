@@ -870,12 +870,41 @@
   const OUT = ' target="_blank" rel="noopener"';
   const ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
   const LINK_LABELS = { site: 'Sayt', telegram: 'Telegram bot', playmarket: 'Google Play', appstore: 'App Store', landing: 'Landing' };
+  // Havola logolari (strelka o‘rniga)
+  const ICONS = {
+    telegram: '<path class="li-fill" d="M21.4 4.2 2.9 11.4c-1.3.5-1.3 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8L22.9 5.8c.3-1.3-.5-1.9-1.5-1.6zM8.8 14.1l9.4-5.9c.5-.3.9-.1.5.2l-7.9 7.1-.3 3.3z"/>',
+    playmarket: '<path class="li-fill" d="M4.1 2.7c-.3.3-.4.7-.4 1.2v16.2c0 .5.1.9.4 1.2l9-9.3zm10.1 10.4 2.6 2.6L6 21.9zM6 2.1l10.8 6.2-2.6 2.6zm11.9 6.9 2.5 1.4c.9.5.9 1.3 0 1.8l-2.5 1.4-2.7-2.3z"/>',
+    appstore: '<path class="li-fill" d="M16.4 12.7c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9s-2-.9-3.4-.9c-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6s1.8-.8 3.3-.8 2 .8 3.4.8 2.3-1.3 3.1-2.5c1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/>',
+    site: '<g class="li-line"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></g>',
+    landing: '<g class="li-line"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8.5h18M7 13h6M7 16.5h10"/></g>',
+    instagram: '<g class="li-line"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle class="li-fill" cx="17.2" cy="6.8" r="1.1"/>',
+    linkedin: '<path class="li-fill" d="M5 3.5a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4zM3.2 9.3H7v11.2H3.2zm6.1 0h3.6v1.6h.1c.5-.9 1.7-1.9 3.6-1.9 3.8 0 4.5 2.5 4.5 5.8v5.7h-3.8v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7v5.1H9.3z"/>',
+  };
+  const linkType = (a) => {
+    if (a.dataset.type) return a.dataset.type;
+    const h = a.getAttribute('href') || '', t = a.textContent.trim().toLowerCase();
+    if (/t\.me\//.test(h)) return 'telegram';
+    if (/instagram\.com/.test(h)) return 'instagram';
+    if (/linkedin\.com/.test(h)) return 'linkedin';
+    if (/play\.google\.com/.test(h)) return 'playmarket';
+    if (/apps\.apple\.com/.test(h)) return 'appstore';
+    return t === 'landing' ? 'landing' : 'site';
+  };
+  function iconize(root = document) {
+    root.querySelectorAll('.work-link, .person-link').forEach((a) => {
+      if (a.querySelector('.li')) return;
+      a.querySelectorAll('svg').forEach((s) => s.remove());
+      a.insertAdjacentHTML('afterbegin', `<svg class="li" viewBox="0 0 24 24" aria-hidden="true">${ICONS[linkType(a)] || ICONS.site}</svg>`);
+    });
+  }
+  iconize();
+
   function projectCard(p) {
     const links = (p.links || []).filter((l) => safeUrl(l.url));
     const status = p.status ? `<span class="work-status">${esc(p.status)}</span> ` : '';
     const desc = p.desc || p.status ? `\n<p>${status}${esc(p.desc)}</p>` : '';
     const foot = links.length
-      ? `\n<div class="work-links">${links.map((l) => `<a class="work-link" href="${esc(l.url)}"${OUT}>${esc(LINK_LABELS[l.type] || 'Havola')}${ARROW}</a>`).join('')}</div>`
+      ? `\n<div class="work-links">${links.map((l) => `<a class="work-link" data-type="${esc(l.type)}" href="${esc(l.url)}"${OUT}>${esc(LINK_LABELS[l.type] || 'Havola')}</a>`).join('')}</div>`
       : '';
     return `<article class="work">
       <div class="cover" data-img="${esc(p.image)}" data-pos="${esc(p.pos)}"><span class="cover-word">${esc(p.word || p.name)}</span></div>
@@ -913,6 +942,7 @@
       $('#teamGrid').innerHTML = data.team.map(memberCard).join('');
       loadTeamPhotos();
     }
+    iconize();
     sizeWorks(); measure();
   }
   if (location.protocol.startsWith('http')) {
