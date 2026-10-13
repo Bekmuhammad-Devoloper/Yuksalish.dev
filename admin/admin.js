@@ -3,7 +3,7 @@
   'use strict';
   const $ = (s, r = document) => r.querySelector(s);
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const asset = (p) => (p ? '../' + p : '');
+  const asset = (p) => (!p ? '' : /^(data:|blob:|https?:)/.test(p) ? p : '../' + p);
   const SEASON_IMAGES = ['assets/img/bahor.jpg', 'assets/img/yoz.jpg', 'assets/img/kuz.jpg', 'assets/img/qish.jpg'];
 
   let db = { projects: [], team: [] };
