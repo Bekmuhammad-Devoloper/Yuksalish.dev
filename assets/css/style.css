@@ -509,3 +509,32 @@ h2 {
   .work-title { font-size: 34px; }
   .work .work-desc { font-size: 17px; }
 }
+
+/* ---------- "Sizning loyihangiz" kartochkasi ---------- */
+.work.work-next {
+  background: linear-gradient(160deg, rgba(201, 180, 138, .16), rgba(13, 26, 58, .55) 45%);
+  color: var(--paper-ink); border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  justify-content: flex-start; padding: 8px 8px 18px; min-height: 0; text-decoration: none;
+}
+.next-visual {
+  position: relative; aspect-ratio: 16 / 10; max-width: 100%; border-radius: 2px; overflow: hidden;
+  display: grid; place-items: center;
+  background: radial-gradient(120% 90% at 50% 0%, #2a4a9a 0%, var(--navy) 45%, var(--navy-deep) 100%);
+}
+.next-visual::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 75%); -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 75%); }
+.next-mark { position: relative; height: 58%; width: auto; color: #f6f3ee; filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .4)); transition: transform .6s cubic-bezier(.2, .8, .2, 1); }
+.next-plus { position: absolute; top: 14px; right: 14px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: var(--navy); font: 500 20px/1 var(--f-display); }
+.work-next:hover .next-mark { transform: translateY(-6px) scale(1.04); }
+.work-next .work-title { font-size: 24px; }
+.next-tags { list-style: none; margin: 14px 10px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.next-tags li { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--paper-line); font: 400 11px/1 var(--f-mono); letter-spacing: .03em; color: color-mix(in srgb, var(--paper-ink) 80%, transparent); }
+.next-cta {
+  margin: auto 10px 0; margin-top: 18px; align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 12px; height: 44px; padding: 0 5px 0 18px; border-radius: 999px;
+  background: #f6f3ee; color: var(--navy); font: 500 14px/1 var(--f-body);
+}
+.next-cta i { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--navy); color: #f6f3ee; transition: background .3s; }
+.next-cta svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .3s; }
+.work-next:hover .next-cta i { background: var(--gold); color: var(--navy); }
+.work-next:hover .next-cta svg { transform: translateX(3px); }
+@media (min-width: 1600px) { .work-next .work-title { font-size: 28px; } }
