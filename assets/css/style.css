@@ -484,3 +484,28 @@ h2 {
   .brand-mark { height: 46px; }
   .brand-word { height: 21px; }
 }
+
+/* ---------- loyiha kartochkasi: aniq tipografik ierarxiya ---------- */
+.work { padding: 8px 8px 18px; gap: 0; }
+.cover { align-items: flex-start; justify-content: space-between; padding: 14px; aspect-ratio: 16 / 10; }
+.cover::after { background: linear-gradient(180deg, rgba(0, 0, 0, .28), transparent 38%, transparent 70%, rgba(0, 0, 0, .25)); }
+.cover-num { position: relative; z-index: 1; font: 500 12px/1 var(--f-mono); letter-spacing: .06em; color: #fff; padding: 6px 9px; border-radius: 999px; background: rgba(8, 16, 36, .38); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.cover-num span { opacity: .55; }
+.cover .work-status { position: relative; z-index: 1; margin: 0; background: rgba(8, 16, 36, .45); border-color: color-mix(in srgb, var(--gold) 70%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.work-body { display: grid; gap: 8px; padding: 18px 10px 0; }
+.work .work-kind { margin: 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+.work-title { margin: 0; font: 500 24px/1.1 var(--f-display); letter-spacing: -.035em; color: #fff; text-wrap: balance; }
+.work .work-desc {
+  margin: 2px 0 0; font: 400 14.5px/1.6 var(--f-body); color: color-mix(in srgb, var(--paper-ink) 72%, transparent);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.work-links { margin: auto 10px 0; padding-top: 18px; }
+@media (min-width: 1600px) {
+  .work-title { font-size: 28px; }
+  .work .work-desc { font-size: 15.5px; }
+  .work .work-kind { font-size: 12px; }
+}
+@media (min-width: 2200px) {
+  .work-title { font-size: 34px; }
+  .work .work-desc { font-size: 17px; }
+}

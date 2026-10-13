@@ -899,16 +899,20 @@
   }
   iconize();
 
-  function projectCard(p) {
+  function projectCard(p, i, all) {
     const links = (p.links || []).filter((l) => safeUrl(l.url));
-    const status = p.status ? `<span class="work-status">${esc(p.status)}</span> ` : '';
-    const desc = p.desc || p.status ? `\n<p>${status}${esc(p.desc)}</p>` : '';
+    const num = `${String(i + 1).padStart(2, '0')}<span>/${String(all.length).padStart(2, '0')}</span>`;
     const foot = links.length
-      ? `\n<div class="work-links">${links.map((l) => `<a class="work-link" data-type="${esc(l.type)}" href="${esc(l.url)}"${OUT}>${esc(LINK_LABELS[l.type] || 'Havola')}</a>`).join('')}</div>`
+      ? `<div class="work-links">${links.map((l) => `<a class="work-link" data-type="${esc(l.type)}" href="${esc(l.url)}"${OUT}>${esc(LINK_LABELS[l.type] || 'Havola')}</a>`).join('')}</div>`
       : '';
     return `<article class="work">
-      <div class="cover" data-img="${esc(p.image)}" data-pos="${esc(p.pos)}"><span class="cover-word">${esc(p.word || p.name)}</span></div>
-      <div class="work-meta"><h3>${esc(p.name)}</h3><span class="mono">${esc(p.kind)}</span></div>${desc}${foot}
+      <div class="cover" data-img="${esc(p.image)}" data-pos="${esc(p.pos)}"><span class="cover-num">${num}</span>${p.status ? `<span class="work-status">${esc(p.status)}</span>` : ''}</div>
+      <div class="work-body">
+        ${p.kind ? `<p class="work-kind">${esc(p.kind)}</p>` : ''}
+        <h3 class="work-title">${esc(p.name)}</h3>
+        ${p.desc ? `<p class="work-desc">${esc(p.desc)}</p>` : ''}
+      </div>
+      ${foot}
     </article>`;
   }
   function memberCard(t) {
