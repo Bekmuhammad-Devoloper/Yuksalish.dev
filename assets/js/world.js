@@ -818,12 +818,12 @@
     for (let n = 0; n < 18; n++) spawn(type, e.clientX, e.clientY, true);
   });
 
-  const copyBtn = $('#copyEmail');
+  const copyBtn = $('#copyTg');
   copyBtn.addEventListener('click', () => {
-    const text = $('#emailLink').textContent;
+    const text = $('#tgLink').textContent;
     const done = () => { copyBtn.textContent = 'Nusxalandi'; setTimeout(() => (copyBtn.textContent = 'Nusxa olish'), 1800); };
     const fallback = () => {
-      const r = document.createRange(); r.selectNodeContents($('#emailLink'));
+      const r = document.createRange(); r.selectNodeContents($('#tgLink'));
       const s = getSelection(); s.removeAllRanges(); s.addRange(r);
       copyBtn.textContent = 'Belgilandi';
     };
@@ -846,8 +846,13 @@
     sendForm(body);
   });
   function sendForm(body) {
-    note.textContent = 'Pochta dasturingiz ochilmoqda…';
-    location.href = `mailto:hello@yuksalish.dev?subject=${encodeURIComponent('Yangi loyiha — Yuksalish.dev')}&body=${encodeURIComponent(body)}`;
+    // Xabar nusxalanadi va Telegram ochiladi — foydalanuvchi uni chatga joylaydi
+    const open = () => { window.open('https://t.me/khamidov_online', '_blank', 'noopener'); };
+    try {
+      navigator.clipboard.writeText(body).then(
+        () => { note.textContent = 'Xabar nusxalandi. Telegram’da chatga joylab yuboring.'; open(); },
+        () => { note.textContent = 'Telegram’da @khamidov_online ga yozing.'; open(); });
+    } catch { note.textContent = 'Telegram’da @khamidov_online ga yozing.'; open(); }
   }
 
   $('#year').textContent = new Date().getFullYear();

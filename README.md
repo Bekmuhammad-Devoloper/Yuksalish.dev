@@ -28,9 +28,9 @@ npx serve .
 
 ## Tahrirlash
 
-- Matnlar, aloqa ma’lumotlari va portfolio — `index.html` (Telegram, email, telefon va loyihalar hozircha namunaviy).
+- Matnlar, aloqa ma’lumotlari va portfolio — `index.html`.
 - Fasl ranglari, harorat, ob-havo kuchi — `assets/js/world.js` dagi `PAL`, `NUM`, `TYPES`.
-- Forma `mailto:` orqali yuboradi — `sendForm()` funksiyasida o‘zgartirish mumkin (masalan, Telegram bot API).
+- Forma xabarni nusxalab, Telegram’da @khamidov_online chatini ochadi (`sendForm()`).
 
 ## Brend
 
