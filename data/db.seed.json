@@ -1,0 +1,388 @@
+{
+  "projects": [
+    {
+      "id": "p1",
+      "name": "Bilimdon AI",
+      "word": "Bilimdon",
+      "kind": "AI ta’lim platformasi",
+      "desc": "Viktorinalar, real vaqtdagi reyting, yutuqlar va bir nechta LLM modeli asosidagi aqlli repetitor.",
+      "status": "",
+      "url": "https://bilimdon-ai.uz",
+      "urlLabel": "bilimdon-ai.uz",
+      "image": "assets/img/bahor.jpg",
+      "pos": "22% 70%",
+      "active": true
+    },
+    {
+      "id": "p2",
+      "name": "Hisobchi-AI",
+      "word": "Hisobchi",
+      "kind": "Moliya platformasi",
+      "desc": "Onlayn do‘kon va moliyaviy boshqaruv: rollar, Click va Payme to‘lovlari, o‘zbek, rus va ingliz tillarida AI moliyaviy tahlil.",
+      "status": "Ishlab chiqilmoqda",
+      "url": "https://hisobchi-ai.uz",
+      "urlLabel": "hisobchi-ai.uz",
+      "image": "assets/img/qish.jpg",
+      "pos": "40% 75%",
+      "active": true
+    },
+    {
+      "id": "p3",
+      "name": "Orfan",
+      "word": "Orfan",
+      "kind": "Klinika CRM",
+      "desc": "Xususiy klinikalar uchun CRM: OneID bilan integratsiya, mijozlar ma’lumotlari xavfsiz saqlanadi, klinika jarayonlari avtomatlashadi.",
+      "status": "",
+      "url": "https://orfan.uz",
+      "urlLabel": "orfan.uz",
+      "image": "assets/img/yoz.jpg",
+      "pos": "80% 40%",
+      "active": true
+    },
+    {
+      "id": "p4",
+      "name": "Bees",
+      "word": "Bees",
+      "kind": "Klinika tizimi",
+      "desc": "Klinikalar uchun yagona tizim: tez yordam, xonalar, retseptlar va bemor to‘lovlarigacha avtomatlashtirilgan.",
+      "status": "",
+      "url": "https://bees.uz",
+      "urlLabel": "bees.uz",
+      "image": "assets/img/kuz.jpg",
+      "pos": "15% 75%",
+      "active": true
+    },
+    {
+      "id": "p5",
+      "name": "Hilal AI · Nutq yo‘li",
+      "word": "Hilal AI",
+      "kind": "AI bot",
+      "desc": "Eshitish va nutqida muammosi bor bolalar uchun AI logoped yordamchisi.",
+      "status": "",
+      "url": "",
+      "urlLabel": "",
+      "image": "assets/img/bahor.jpg",
+      "pos": "75% 45%",
+      "active": true
+    },
+    {
+      "id": "p6",
+      "name": "O‘zimiz Taxi",
+      "word": "Taxi",
+      "kind": "Taksi agregatori",
+      "desc": "Qo‘qon shahridagi taksi agregatori: veb-sayt va Telegram bot.",
+      "status": "",
+      "url": "",
+      "urlLabel": "",
+      "image": "assets/img/kuz.jpg",
+      "pos": "70% 40%",
+      "active": true
+    },
+    {
+      "id": "p7",
+      "name": "Xizmat24",
+      "word": "Xizmat24",
+      "kind": "Mobil ilova",
+      "desc": "Namangandagi ustalar va maishiy xizmatlarni topish ilovasi.",
+      "status": "",
+      "url": "",
+      "urlLabel": "",
+      "image": "assets/img/yoz.jpg",
+      "pos": "20% 80%",
+      "active": true
+    },
+    {
+      "id": "p8",
+      "name": "Fastpin",
+      "word": "Fastpin",
+      "kind": "Donat platformasi",
+      "desc": "Ko‘plab o‘yinlarga donat qilish uchun platforma.",
+      "status": "",
+      "url": "https://fastpin.uz",
+      "urlLabel": "fastpin.uz",
+      "image": "assets/img/qish.jpg",
+      "pos": "65% 70%",
+      "active": true
+    },
+    {
+      "id": "p9",
+      "name": "Vega",
+      "word": "Vega",
+      "kind": "Ekotizim platformasi",
+      "desc": "",
+      "status": "",
+      "url": "https://vega.yuksalish.dev",
+      "urlLabel": "vega.yuksalish.dev",
+      "image": "assets/img/yoz.jpg",
+      "pos": "35% 55%",
+      "active": true
+    },
+    {
+      "id": "p10",
+      "name": "Sellio Store",
+      "word": "Sellio",
+      "kind": "Ekotizim platformasi",
+      "desc": "",
+      "status": "",
+      "url": "https://selliostore.uz",
+      "urlLabel": "selliostore.uz",
+      "image": "assets/img/kuz.jpg",
+      "pos": "55% 70%",
+      "active": true
+    },
+    {
+      "id": "p11",
+      "name": "Marja Group",
+      "word": "Marja",
+      "kind": "Veb-sayt",
+      "desc": "",
+      "status": "",
+      "url": "https://marjagroup.uz",
+      "urlLabel": "marjagroup.uz",
+      "image": "assets/img/qish.jpg",
+      "pos": "30% 60%",
+      "active": true
+    },
+    {
+      "id": "p12",
+      "name": "Farzandim Edu",
+      "word": "Farzandim",
+      "kind": "Veb-sayt",
+      "desc": "",
+      "status": "",
+      "url": "https://farzandimedu.uz",
+      "urlLabel": "farzandimedu.uz",
+      "image": "assets/img/bahor.jpg",
+      "pos": "60% 75%",
+      "active": true
+    },
+    {
+      "id": "p13",
+      "name": "Germaniya Live",
+      "word": "Germaniya",
+      "kind": "Veb-sayt",
+      "desc": "",
+      "status": "",
+      "url": "https://germaniya.live",
+      "urlLabel": "germaniya.live",
+      "image": "assets/img/yoz.jpg",
+      "pos": "75% 75%",
+      "active": true
+    },
+    {
+      "id": "p14",
+      "name": "Imkon Live",
+      "word": "Imkon",
+      "kind": "Veb-sayt",
+      "desc": "",
+      "status": "",
+      "url": "https://imkon-live.bekmuhammad.uz",
+      "urlLabel": "imkon-live.bekmuhammad.uz",
+      "image": "assets/img/kuz.jpg",
+      "pos": "30% 50%",
+      "active": true
+    },
+    {
+      "id": "p15",
+      "name": "Chinese Wave",
+      "word": "Chinese",
+      "kind": "Veb-sayt",
+      "desc": "",
+      "status": "",
+      "url": "https://chinesewave.uz",
+      "urlLabel": "chinesewave.uz",
+      "image": "assets/img/qish.jpg",
+      "pos": "80% 55%",
+      "active": true
+    },
+    {
+      "id": "p16",
+      "name": "UZ Simcard",
+      "word": "Simcard",
+      "kind": "Veb-sayt",
+      "desc": "",
+      "status": "",
+      "url": "https://uz-simcard.uz",
+      "urlLabel": "uz-simcard.uz",
+      "image": "assets/img/bahor.jpg",
+      "pos": "35% 40%",
+      "active": true
+    },
+    {
+      "id": "p17",
+      "name": "Duyo",
+      "word": "Duyo",
+      "kind": "Ilova",
+      "desc": "",
+      "status": "",
+      "url": "https://duyo.uz",
+      "urlLabel": "duyo.uz",
+      "image": "assets/img/yoz.jpg",
+      "pos": "50% 70%",
+      "active": true
+    },
+    {
+      "id": "p18",
+      "name": "Parvoz",
+      "word": "Parvoz",
+      "kind": "Ilova",
+      "desc": "",
+      "status": "",
+      "url": "",
+      "urlLabel": "",
+      "image": "assets/img/kuz.jpg",
+      "pos": "85% 65%",
+      "active": true
+    },
+    {
+      "id": "p19",
+      "name": "Niyat",
+      "word": "Niyat",
+      "kind": "Ilova",
+      "desc": "",
+      "status": "",
+      "url": "",
+      "urlLabel": "",
+      "image": "assets/img/qish.jpg",
+      "pos": "50% 45%",
+      "active": true
+    },
+    {
+      "id": "p20",
+      "name": "KursPay",
+      "word": "KursPay",
+      "kind": "Telegram bot",
+      "desc": "Onlayn kurslar uchun avtomatik to‘lov.",
+      "status": "",
+      "url": "",
+      "urlLabel": "",
+      "image": "assets/img/bahor.jpg",
+      "pos": "20% 55%",
+      "active": true
+    },
+    {
+      "id": "p21",
+      "name": "Oson turk tili",
+      "word": "Turk tili",
+      "kind": "Telegram bot",
+      "desc": "",
+      "status": "",
+      "url": "https://t.me/oson_turktili_bot",
+      "urlLabel": "@oson_turktili_bot",
+      "image": "assets/img/yoz.jpg",
+      "pos": "65% 35%",
+      "active": true
+    },
+    {
+      "id": "p22",
+      "name": "IT Jobs",
+      "word": "IT Jobs",
+      "kind": "Telegram bot",
+      "desc": "",
+      "status": "",
+      "url": "https://t.me/Yuksalishdev_ITjobsbot",
+      "urlLabel": "@Yuksalishdev_ITjobsbot",
+      "image": "assets/img/kuz.jpg",
+      "pos": "50% 85%",
+      "active": true
+    }
+  ],
+  "team": [
+    {
+      "id": "t1",
+      "name": "Bekmuhammad Shokirjonov",
+      "initials": "BS",
+      "role": "Asoschi va CEO · Full-stack va AI muhandis",
+      "bio": "Backend tizimlar, veb-ilovalar va sun’iy intellekt yechimlarini quradi: REST API, mikroservislar, Telegram integratsiyalari, LLM asosidagi yordamchilar va AI-tahlil. Mahsulotni g‘oyadan production’gacha olib chiqadi.",
+      "stats": [
+        {
+          "value": "100%",
+          "label": "NestJS baholash"
+        },
+        {
+          "value": "99%",
+          "label": "Express.js baholash"
+        },
+        {
+          "value": "20+",
+          "label": "loyiha"
+        }
+      ],
+      "skills": [
+        "Node.js",
+        "NestJS",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "AI / LLM",
+        "PostgreSQL",
+        "Docker",
+        "gRPC",
+        "Telegram Bot API"
+      ],
+      "now": "Yuksalish.dev asoschisi · UITech Academy mentori",
+      "links": [
+        {
+          "label": "Sayt",
+          "url": "https://bekmuhammad.uz"
+        },
+        {
+          "label": "Telegram",
+          "url": "https://t.me/khamidov_online"
+        },
+        {
+          "label": "Instagram",
+          "url": "https://www.instagram.com/yuksalish.dev"
+        },
+        {
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/in/bekmuhammad-shokirjonov-31a9573a3"
+        }
+      ],
+      "photo": "assets/team/bekmuhammad.jpg",
+      "active": true
+    },
+    {
+      "id": "t2",
+      "name": "Ziyodulloh Najmiddinov",
+      "initials": "ZN",
+      "role": "Hammuassis · CTO va Project Manager",
+      "bio": "Full-stack dasturchi. Loyihalarni rejalashtiradi va boshqaradi, texnik yechimlarni tanlaydi, va jamoani frontend’dan backend’gacha bir maqsadga yo‘naltiradi.",
+      "stats": [
+        {
+          "value": "CTO",
+          "label": "texnik rahbar"
+        },
+        {
+          "value": "PM",
+          "label": "loyiha boshqaruvi"
+        },
+        {
+          "value": "22",
+          "label": "jamoa loyihasi"
+        }
+      ],
+      "skills": [
+        "Full-stack",
+        "Frontend",
+        "Backend",
+        "Texnik arxitektura",
+        "Loyiha boshqaruvi",
+        "Jamoa boshqaruvi"
+      ],
+      "now": "Yuksalish.dev hammuassisi · CTO va Project Manager",
+      "links": [
+        {
+          "label": "Sayt",
+          "url": "https://ziyodulloh.uz"
+        },
+        {
+          "label": "Telegram",
+          "url": "https://t.me/yuksalish_dev"
+        }
+      ],
+      "photo": "assets/team/ziyodulloh.jpg",
+      "active": true
+    }
+  ]
+}

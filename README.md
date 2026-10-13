@@ -20,15 +20,37 @@ altimetr, so‘zma-so‘z ochiladigan manifest, gorizontal portfolio galereyasi,
 
 ## Ishga tushirish
 
-Build kerak emas:
+Node.js 18+ kerak, `npm install` shart emas (tashqi kutubxona yo‘q):
 
 ```bash
-npx serve .
+ADMIN_PASSWORD="kuchli-parol" SESSION_SECRET="uzun-tasodifiy-satr" npm start
+# sayt:  http://localhost:3000
+# admin: http://localhost:3000/admin
 ```
+
+| O‘zgaruvchi | Vazifasi |
+|---|---|
+| `ADMIN_PASSWORD` | Admin panel paroli. Berilmasa, admin panelga kirib bo‘lmaydi. |
+| `SESSION_SECRET` | Sessiya imzosi. Berilmasa, har qayta ishga tushganda admin qayta kirishi kerak bo‘ladi. |
+| `PORT` | Port, standart `3000`. |
+| `COOKIE_SECURE=1` | Sayt HTTPS orqali ishlaganda yoqing. |
+
+Serverda PM2 bilan: `ADMIN_PASSWORD=... pm2 start server.js --name yuksalish`.
+
+## Admin panel
+
+`/admin` — parol bilan kiriladi.
+
+- **Loyihalar:** qo‘shish, tahrirlash, o‘chirish, faol/nofaol qilish, tartibini o‘zgartirish, muqova rasmini tanlash yoki yuklash.
+- **Jamoa:** xodim qo‘shish, tahrirlash, o‘chirish, faol/nofaol qilish, tartib, rasm yuklash, ko‘rsatkichlar, ko‘nikmalar va havolalar.
+
+Ma’lumotlar `data/db.json` faylida saqlanadi (birinchi ishga tushishda `data/db.seed.json` dan yaratiladi),
+yuklangan rasmlar `assets/uploads/` papkasida. Ikkalasi ham git’ga kirmaydi — serverda zaxira nusxasini oling.
+Server ishlamasa (masalan, `index.html` to‘g‘ridan-to‘g‘ri ochilsa), sahifadagi statik kontent ko‘rsatiladi.
 
 ## Tahrirlash
 
-- Matnlar, aloqa ma’lumotlari va portfolio — `index.html` (Telegram, email, telefon va loyihalar hozircha namunaviy).
+- Loyihalar va jamoa — admin panel orqali. Boshqa matnlar va aloqa ma’lumotlari — `index.html`.
 - Fasl ranglari, harorat, ob-havo kuchi — `assets/js/world.js` dagi `PAL`, `NUM`, `TYPES`.
 - Forma `mailto:` orqali yuboradi — `sendForm()` funksiyasida o‘zgartirish mumkin (masalan, Telegram bot API).
 

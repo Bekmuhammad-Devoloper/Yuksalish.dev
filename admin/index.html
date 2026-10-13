@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin · Yuksalish.dev</title>
+  <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- Kirish -->
+<main class="login" id="loginView" hidden>
+  <form class="login-card" id="loginForm">
+    <img src="../assets/brand/logo-mark.svg" alt="" class="login-mark">
+    <h1>Admin panel</h1>
+    <p class="muted">Yuksalish.dev landing sahifasini boshqarish</p>
+    <label class="field"><span>Parol</span><input type="password" id="loginPassword" autocomplete="current-password" required autofocus></label>
+    <p class="error" id="loginError" role="alert"></p>
+    <button class="btn btn-primary" type="submit">Kirish</button>
+  </form>
+</main>
+
+<!-- Panel -->
+<div class="app" id="appView" hidden>
+  <header class="top">
+    <a class="brand" href="../" target="_blank" rel="noopener">
+      <img src="../assets/brand/logo-mark.svg" alt="">
+      <span>yuksalish<b>.dev</b> <em>admin</em></span>
+    </a>
+    <nav class="tabs" role="tablist">
+      <button role="tab" class="tab" data-tab="projects" aria-selected="true">Loyihalar <span class="badge" id="countProjects">0</span></button>
+      <button role="tab" class="tab" data-tab="team" aria-selected="false">Jamoa <span class="badge" id="countTeam">0</span></button>
+    </nav>
+    <div class="top-actions">
+      <a class="btn btn-ghost" href="../" target="_blank" rel="noopener">Saytni ochish</a>
+      <button class="btn btn-ghost" id="logoutBtn">Chiqish</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="toolbar">
+      <div>
+        <h2 id="listTitle">Loyihalar</h2>
+        <p class="muted" id="listHint">Faol loyihalar saytdagi galereyada shu tartibda ko‘rinadi.</p>
+      </div>
+      <div class="toolbar-right">
+        <input type="search" id="searchInput" placeholder="Qidirish…" aria-label="Qidirish">
+        <button class="btn btn-primary" id="addBtn">+ Qo‘shish</button>
+      </div>
+    </div>
+    <ul class="rows" id="rows"></ul>
+    <p class="empty muted" id="emptyState" hidden>Hech narsa topilmadi.</p>
+  </main>
+</div>
+
+<!-- Tahrirlash oynasi -->
+<dialog class="modal" id="editDialog">
+  <form method="dialog" id="editForm" class="modal-body" novalidate>
+    <header class="modal-head">
+      <h3 id="editTitle">Loyiha qo‘shish</h3>
+      <button type="button" class="icon-btn" data-close aria-label="Yopish">×</button>
+    </header>
+    <div class="modal-fields" id="editFields"></div>
+    <p class="error" id="editError" role="alert"></p>
+    <footer class="modal-foot">
+      <label class="switch-row"><input type="checkbox" id="f-active" checked><span class="switch"></span>Saytda ko‘rinsin</label>
+      <div class="spacer"></div>
+      <button type="button" class="btn btn-ghost" data-close>Bekor qilish</button>
+      <button type="submit" class="btn btn-primary" id="saveBtn">Saqlash</button>
+    </footer>
+  </form>
+</dialog>
+
+<!-- O‘chirishni tasdiqlash -->
+<dialog class="modal modal-sm" id="confirmDialog">
+  <form method="dialog" class="modal-body">
+    <h3>O‘chirilsinmi?</h3>
+    <p class="muted" id="confirmText"></p>
+    <footer class="modal-foot">
+      <div class="spacer"></div>
+      <button value="cancel" class="btn btn-ghost">Bekor qilish</button>
+      <button value="ok" class="btn btn-danger">O‘chirish</button>
+    </footer>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>

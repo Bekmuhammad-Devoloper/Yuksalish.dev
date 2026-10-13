@@ -853,12 +853,73 @@
   $('#year').textContent = new Date().getFullYear();
 
   // Jamoa rasmlari: fayl bo‘lsa ko‘rsatiladi, bo‘lmasa bosh harflar qoladi
-  $$('.person-photo[data-photo]').forEach((el) => {
-    const src = el.dataset.photo;
-    const probe = new Image();
-    probe.onload = () => { el.style.backgroundImage = `url("${src}")`; el.style.backgroundPosition = 'center 20%'; el.classList.add('has-photo'); };
-    probe.src = src;
-  });
+  function loadTeamPhotos() {
+    $$('.person-photo[data-photo]').forEach((el) => {
+      const src = el.dataset.photo;
+      if (!src) return;
+      const probe = new Image();
+      probe.onload = () => { el.style.backgroundImage = `url("${src}")`; el.style.backgroundPosition = 'center 20%'; el.classList.add('has-photo'); };
+      probe.src = src;
+    });
+  }
+  loadTeamPhotos();
+
+  /* ---------- Admin paneldagi ma’lumotlar (server bo‘lsa) ---------- */
+  const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const safeUrl = (u) => (/^(https?:\/\/|#)/i.test(u || '') ? u : '');
+  const OUT = ' target="_blank" rel="noopener"';
+  const ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+  function projectCard(p) {
+    const href = safeUrl(p.url);
+    const tag = href ? 'a' : 'article';
+    const attrs = href ? ` href="${esc(href)}"${href.startsWith('#') ? '' : OUT}` : '';
+    const status = p.status ? `<span class="work-status">${esc(p.status)}</span> ` : '';
+    const desc = p.desc || p.status ? `\n<p>${status}${esc(p.desc)}</p>` : '';
+    const foot = href ? `\n<span class="work-url">${esc(p.urlLabel || href.replace(/^https?:\/\//, ''))}${ARROW}</span>` : '';
+    return `<${tag} class="work"${attrs}>
+      <div class="cover" data-img="${esc(p.image)}" data-pos="${esc(p.pos)}"><span class="cover-word">${esc(p.word || p.name)}</span></div>
+      <div class="work-meta"><h3>${esc(p.name)}</h3><span class="mono">${esc(p.kind)}</span></div>${desc}${foot}
+    </${tag}>`;
+  }
+  function memberCard(t) {
+    const stats = t.stats?.length ? `<dl class="person-stats">${t.stats.map((s) => `<div><dt>${esc(s.value)}</dt><dd>${esc(s.label)}</dd></div>`).join('')}</dl>` : '';
+    const skills = t.skills?.length ? `<ul class="person-skills">${t.skills.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>` : '';
+    const now = t.now ? `<p class="person-now"><span class="mono">Hozir</span>${esc(t.now)}</p>` : '';
+    const links = (t.links || []).filter((l) => safeUrl(l.url));
+    const linkHtml = links.length ? `<div class="person-links">${links.map((l) => `<a class="person-link" href="${esc(l.url)}"${l.url.startsWith('#') ? '' : OUT}>${esc(l.label)}</a>`).join('')}</div>` : '';
+    return `<article class="person sheet">
+      <div class="person-photo" data-photo="${esc(t.photo)}" role="img" aria-label="${esc(t.name)}"><span class="person-initials" aria-hidden="true">${esc(t.initials)}</span></div>
+      <div class="person-body">
+        <p class="person-role mono">${esc(t.role)}</p>
+        <h3>${esc(t.name)}</h3>
+        ${t.bio ? `<p class="person-bio">${esc(t.bio)}</p>` : ''}
+        ${stats}${skills}${now}${linkHtml}
+      </div>
+    </article>`;
+  }
+  function applyContent(data) {
+    if (Array.isArray(data.projects)) {
+      const next = track.querySelector('.work-next');
+      track.querySelectorAll('.work:not(.work-next)').forEach((n) => n.remove());
+      next.insertAdjacentHTML('beforebegin', data.projects.map(projectCard).join(''));
+      track.querySelectorAll('.cover[data-img]').forEach((c) => {
+        c.style.backgroundImage = `url("${c.dataset.img}")`;
+        c.style.backgroundPosition = c.dataset.pos;
+      });
+      $('#worksCount').textContent = data.projects.length;
+    }
+    if (Array.isArray(data.team)) {
+      $('#teamGrid').innerHTML = data.team.map(memberCard).join('');
+      loadTeamPhotos();
+    }
+    sizeWorks(); measure();
+  }
+  if (location.protocol.startsWith('http')) {
+    fetch('/api/content', { headers: { Accept: 'application/json' } })
+      .then((r) => (r.ok && (r.headers.get('content-type') || '').includes('json') ? r.json() : null))
+      .then((d) => d && applyContent(d))
+      .catch(() => { /* server yo‘q — statik kontent qoladi */ });
+  }
 
   /* ================= Asosiy sikl ================= */
   function frame(time) {
