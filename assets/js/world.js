@@ -940,7 +940,6 @@
         c.style.backgroundImage = `url("${c.dataset.img}")`;
         c.style.backgroundPosition = c.dataset.pos;
       });
-      $('#worksCount').textContent = data.projects.length;
     }
     if (Array.isArray(data.team)) {
       $('#teamGrid').innerHTML = data.team.map(memberCard).join('');
