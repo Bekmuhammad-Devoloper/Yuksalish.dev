@@ -31,3 +31,9 @@ npx serve .
 - Matnlar, aloqa ma’lumotlari va portfolio — `index.html` (Telegram, email, telefon va loyihalar hozircha namunaviy).
 - Fasl ranglari, harorat, ob-havo kuchi — `assets/js/world.js` dagi `PAL`, `NUM`, `TYPES`.
 - Forma `mailto:` orqali yuboradi — `sendForm()` funksiyasida o‘zgartirish mumkin (masalan, Telegram bot API).
+
+## Brend
+
+- Logotip: `assets/brand/logo-mark.svg` (qush), `assets/brand/logo-wordmark.svg` (yozuv), `assets/brand/favicon.svg`.
+  Asl rasmdan vektorlashtirilgan; dizaynerdan asl vektor fayl olinsa, shu fayllarni almashtirish kifoya.
+- Ranglar: navy `#13265a`, shampan-oltin `#c9b48a` (saytda `--navy`, `--gold`).

@@ -33,7 +33,7 @@
   // [Navro‘z, Saraton, Mezon, Chilla]
   const PAL = {
     accent: ['#f4a3bb', '#ffc061', '#ff9a57', '#a9c1ff'],
-    tint:   ['#16201d', '#0e1c28', '#2a1910', '#111532'],   // shisha varaqlar foni
+    tint:   ['#122236', '#0d2040', '#211f33', '#0f1638'],   // shisha varaqlar foni (brend navy asosida)
     fog:    ['#e9ece9', '#f4f1e8', '#f3dcc0', '#c9cde6'],
     light:  ['#fff1d8', '#fff6dc', '#ffc27a', '#b9c4ff'],
   };
@@ -613,7 +613,7 @@
 
   let lastIdx = -1;
   function updateUI() {
-    root.style.setProperty('--accent', rgba(C.accent));
+    root.style.setProperty('--season', rgba(C.accent));
     root.style.setProperty('--paper', rgba(C.tint, .5));
     root.style.setProperty('--paper-solid', rgba(C.tint));
 
