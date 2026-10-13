@@ -43,6 +43,8 @@
     veil:    [.06, 0, .015, .04],   // havodagi namlik pardasi
     flare:   [0, 1, 0, 0],          // yozgi linza dog‘lari
     lens:    [1, 0, 0, 0],          // linzadagi tomchilar
+    sky:     [.16, .04, .1, .08],   // osmonda sekin suzuvchi bulut pardasi
+    frost:   [0, 0, 0, 1],          // linzaga yopishib eriydigan qor
     wind:    [.6, .15, 2.2, .7],
     temp:    [12, 29, 9, -11],
   };
@@ -141,6 +143,16 @@
     gr.addColorStop(1, 'rgba(255,255,255,0)');
     g.fillStyle = gr;
     g.beginPath(); g.arc(0, 0, r, 0, 6.283); g.fill();
+  }, b));
+
+  // Yorug‘ fondagi qor parchasi — kulrangroq (qor ustida oq parcha ko‘rinmaydi, real hayotda ham shunday)
+  const SNOW_DIM = [0, .5, 1.5, 4].map((b) => sprite(32, (g, s) => {
+    const gr = g.createRadialGradient(0, 0, 0, 0, 0, s / 2);
+    gr.addColorStop(0, 'rgba(150,160,178,.95)');
+    gr.addColorStop(.55, 'rgba(165,174,190,.8)');
+    gr.addColorStop(1, 'rgba(165,174,190,0)');
+    g.fillStyle = gr;
+    g.beginPath(); g.arc(0, 0, s / 2, 0, 6.283); g.fill();
   }, b));
 
   // O‘rik gulbargi
@@ -261,7 +273,7 @@
       }
     }
   })();
-  let fogOff1 = 0, fogOff2 = 0;
+  let fogOff1 = 0, fogOff2 = 0, rainT = 0;
 
   function drawFog() {
     if (N.fog < .01) return;
@@ -342,6 +354,78 @@
     ctx.restore();
   }
 
+  /* ---------- fon yorug‘ligi xaritasi ---------- */
+  // Haqiqiy hayotda yomg‘ir to‘q fonda oq, yorug‘ osmonda kulrang ko‘rinadi; qor ham yorug‘ qor ustida xiralashadi.
+  // Shuning uchun surat yorug‘ligini kichik to‘rda o‘lchab, har zarrani shunga moslab bo‘yaymiz.
+  const LG = document.createElement('canvas'), lgx = LG.getContext('2d', { willReadFrequently: true });
+  let lum = null, lumW = 96, lumH = 54, lumKey = -1, lumTick = 0;
+  function updateLum() {
+    const k = B.w.indexOf(Math.max(...B.w));
+    if (k === lumKey && ++lumTick % 45) return;
+    lumKey = k; lumTick = 0;
+    const im = imgs[k];
+    if (!im.naturalWidth || !W) return;
+    lumH = Math.max(8, Math.round(lumW * H / W));
+    LG.width = lumW; LG.height = lumH;
+    const m = imageMap(k), sc = lumW / W;
+    try {
+      lgx.drawImage(im, m.dx * sc, m.dy * sc, im.naturalWidth * m.s * sc, im.naturalHeight * m.s * sc);
+      const d = lgx.getImageData(0, 0, lumW, lumH).data;
+      lum = new Float32Array(lumW * lumH);
+      for (let i = 0; i < lum.length; i++) lum[i] = (d[i * 4] * .299 + d[i * 4 + 1] * .587 + d[i * 4 + 2] * .114) / 255;
+    } catch { lum = null; }      // fayl tizimidan ochilganda brauzer piksellarni o‘qishga ruxsat bermaydi
+  }
+  const lumAt = (x, y) => {
+    if (!lum) return .4;
+    const gx = clamp((x / W * lumW) | 0, 0, lumW - 1), gy = clamp((y / H * lumH) | 0, 0, lumH - 1);
+    return lum[gy * lumW + gx];
+  };
+
+  /* ---------- yerga tushgan yomg‘ir sachrashlari ---------- */
+  let splashes = [];
+  function updateSplashes() {
+    const w = B.w[0];
+    if (w > .05) {
+      const ground = toScreen(0, .5, .66).y;        // bahor suratida o‘tloq shu chiziqdan pastda
+      const n = Math.random() < w * density * 6 % 1 ? Math.ceil(w * density * 6) : Math.floor(w * density * 6);
+      for (let i = 0; i < n; i++) {
+        const y = rand(Math.max(ground, H * .45), H);
+        const depth = (y - ground) / Math.max(1, H - ground);          // pastroq — kameraga yaqinroq
+        splashes.push({ x: rand(0, W), y, s: .6 + depth * 2.4, t: 0, life: 10 + depth * 8,
+          drops: Array.from({ length: 2 + (Math.random() * 3 | 0) }, () => ({ vx: rand(-1.6, 1.6), vy: rand(-2.6, -1.2) })) });
+      }
+    }
+    splashes = splashes.filter((sp) => ++sp.t < sp.life);
+  }
+  function drawSplashes() {
+    if (!splashes.length) return;
+    ctx.lineWidth = 1;
+    for (const sp of splashes) {
+      const k = sp.t / sp.life, a = (1 - k) * .55;
+      const light = lumAt(sp.x, sp.y) < .55;
+      ctx.strokeStyle = light ? `rgba(235,242,250,${a})` : `rgba(70,80,92,${a})`;
+      ctx.beginPath(); ctx.ellipse(sp.x, sp.y, sp.s * (1 + k * 5), sp.s * (1 + k * 5) * .28, 0, 0, 6.283); ctx.stroke();
+      ctx.fillStyle = light ? `rgba(240,245,252,${a})` : `rgba(70,80,92,${a})`;
+      for (const d of sp.drops) {
+        const t = sp.t;
+        ctx.fillRect(sp.x + d.vx * t * sp.s * .6, sp.y + (d.vy * t + .25 * t * t) * sp.s * .5, Math.max(1, sp.s * .6), Math.max(1, sp.s * .6));
+      }
+    }
+  }
+
+  /* ---------- osmonda suzuvchi bulut pardasi (time-lapse taassuroti) ---------- */
+  let skyOff = 0;
+  function drawSky() {
+    if (N.sky < .01) return;
+    const tw = W * 1.8, th = H * .5;
+    const x0 = -((skyOff % tw) + tw) % tw;
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+    ctx.globalAlpha = N.sky;
+    for (let x = x0; x < W; x += tw) ctx.drawImage(fogTex, x, -H * .08, tw, th);
+    ctx.restore();
+  }
+
   /* ---------- linzadagi yomg‘ir tomchilari ---------- */
   // Har bir tomchi orqasidagi manzarani teskari va kichraytirib ko‘rsatadi — haqiqiy linzadagidek.
   let drops = [];
@@ -352,9 +436,23 @@
       const big = Math.random() < .3;
       drops.push({ x: rand(0, W), y: rand(0, H * .95), r: big ? rand(7, 13) : rand(2, 6.5), a: 0, vy: 0, life: 1, trail: 0, sx: rand(.85, 1.05) });
     }
+    // qishda linzaga qor parchalari yopishadi va asta erib tomchiga aylanadi
+    const fw = B.w[3] * N.frost;
+    if (fw > .3 && drops.filter((d) => d.flake).length < 8 * density && Math.random() < .02 * fw) {
+      drops.push({ x: rand(0, W), y: rand(0, H * .9), r: rand(5, 11), a: 0, vy: 0, life: 1, trail: 0, sx: rand(.9, 1.1), flake: 1, melt: 0, rot: rand(0, 6.28) });
+    }
     const next = [];
     for (const d of drops) {
-      if (drops.length > target + 2 || w < .05) d.life -= .012;     // fasl o‘tganda bug‘lanadi
+      if (d.flake) {
+        d.melt += .0035;
+        if (d.melt >= 1) { d.flake = 0; d.r *= .6; d.life = 1.6; }   // erib bo‘ldi — endi oddiy tomchi
+        d.a = Math.min(1, d.a + .06);
+        if (fw < .1) d.life -= .02;
+        if (d.life > 0) next.push(d);
+        continue;
+      }
+      if ((drops.length > target + 2 || w < .05) && !(fw > .3)) d.life -= .012;     // fasl o‘tganda bug‘lanadi
+      else if (fw > .3) d.life -= .004;
       d.a = Math.min(1, d.a + .08) * Math.max(0, d.life);
       if (d.r > 8.5 && Math.random() < .015) d.vy = rand(1.5, 4);   // og‘ir tomchi pastga sirg‘aladi
       if (d.vy) {
@@ -374,12 +472,34 @@
   }
   function drawDrops() {
     if (!drops.length) return;
-    const k = B.w[0] >= B.w[1] ? 0 : 1;
+    const k = B.w.indexOf(Math.max(...B.w));
     const img = imgs[k];
     if (!img.naturalWidth) return;
     const m = imageMap(k);
     for (const d of drops) {
       if (d.a < .02) continue;
+      if (d.flake) {
+        // yopishgan qor: fokusdan tashqari oq dog‘, erigan sari shaffoflashib tomchiga aylanadi
+        const k = d.melt, r = d.r * (1.6 - k * .6);
+        const g = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, r);
+        g.addColorStop(0, `rgba(255,255,255,${(.75 - k * .5) * d.a})`);
+        g.addColorStop(.6, `rgba(240,244,255,${(.45 - k * .3) * d.a})`);
+        g.addColorStop(1, 'rgba(240,244,255,0)');
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(d.x, d.y, r, 0, 6.283); ctx.fill();
+        // olti qirrali kristall izi (erishning boshida ko‘rinadi)
+        if (k < .5) {
+          ctx.strokeStyle = `rgba(255,255,255,${(.5 - k) * d.a})`; ctx.lineWidth = .8;
+          ctx.beginPath();
+          for (let i = 0; i < 6; i++) {
+            const an = d.rot + i * Math.PI / 3;
+            ctx.moveTo(d.x, d.y); ctx.lineTo(d.x + Math.cos(an) * r * .8, d.y + Math.sin(an) * r * .8);
+          }
+          ctx.stroke();
+        }
+        continue;
+      }
       const rx = d.r * d.sx, ry = d.r;
       ctx.save();
       ctx.globalAlpha = d.a;
@@ -425,7 +545,12 @@
     const z = type === 'snow' || type === 'rain' ? Math.pow(Math.random(), 2.4) : Math.pow(Math.random(), 1.5);
     const p = { type, z, a: 0, dying: false, bx: 0, by: 0, ph: Math.random() * 6.28 };
     switch (type) {
-      case 'rain':  p.x = rand(-W * .3, W * 1.05); p.y = rand(-H * .3, H * .1); p.vy = 18 + z * 26; p.len = 10 + z * 46; p.a = 1; break;
+      case 'rain': {
+        // shamol yomg‘irni to‘lqin-to‘lqin olib keladi: shovqin yuqori joyda zichroq
+        let x = rand(-W * .3, W * 1.05);
+        for (let t = 0; t < 3 && wave(x * .004 + rainT) < -.1; t++) x = rand(-W * .3, W * 1.05);
+        p.x = x; p.y = rand(-H * .3, H * .1); p.vy = 18 + z * 26; p.len = 10 + z * 46; p.a = 1; break;
+      }
       case 'petal': p.x = rand(-80, W); p.y = rand(-40, -10); p.vx = rand(.2, .9); p.vy = .5 + z * 1.4; p.size = 4 + z * z * 22; p.rot = rand(0, 6.28); p.vr = rand(-.04, .04); p.c = (Math.random() * 2) | 0; break;
       case 'mote':  p.x = rand(0, W); p.y = rand(H * .1, H * .95); p.vy = rand(-.2, -.04); p.size = 3 + z * 9; p.life = 0; p.max = rand(300, 700); break;
       case 'bird': {
@@ -486,7 +611,7 @@
         case 'mote':  p.x += (Math.sin(p.ph * .5) * .25 + wind * .25) * par; p.y += p.vy; p.life++; break;
         case 'bird':  p.x += p.vx; p.y += Math.sin(p.ph * .3) * .1; break;
         case 'leaf':  p.x += (p.vx + wind * 1.4 + Math.sin(p.ph * .7) * 1.4) * par; p.y += p.vy + Math.cos(p.ph * 1.5) * .45; p.rot += p.vr + Math.sin(p.ph) * .012; p.ph += p.flip; break;
-        case 'snow':  p.x += (Math.sin(p.ph * .4 + p.z * 4) * .55 + wind * .7) * par; p.y += p.vy * (1 + gust * .15); break;
+        case 'snow':  p.dx = (Math.sin(p.ph * .4 + p.z * 4) * .55 + wind * .7) * par; p.x += p.dx; p.y += p.vy * (1 + gust * .15); break;
       }
       if (p.dying) p.a -= .02;
       else if (p.a < 1) p.a = Math.min(1, p.a + .03);
@@ -501,18 +626,25 @@
 
   function drawParticles(time) {
     // yomg‘ir: uchta chuqurlik qatlami, har biri bitta yo‘l bilan (tez)
+    // Fonga qarab: to‘q joyda oq-kumush, yorug‘ osmonda kulrang
     const bands = [[0, .35, .26, .9], [.35, .7, .38, 1.3], [.7, 1.01, .5, 2]];
     ctx.lineCap = 'round';
+    ctx.globalAlpha = 1;
     for (const [z0, z1, al, lw] of bands) {
-      ctx.beginPath();
-      let any = false;
-      for (const p of parts) {
-        if (p.type !== 'rain' || p.z < z0 || p.z >= z1) continue;
-        const dx = p.vx / p.vy * p.len;
-        ctx.moveTo(p.x, p.y); ctx.lineTo(p.x - dx, p.y - p.len);
-        any = true;
+      for (const lightPass of [true, false]) {
+        ctx.beginPath();
+        let any = false;
+        for (const p of parts) {
+          if (p.type !== 'rain' || p.z < z0 || p.z >= z1) continue;
+          if ((lumAt(p.x, p.y) < .62) !== lightPass) continue;
+          const dx = p.vx / p.vy * p.len;
+          ctx.moveTo(p.x, p.y); ctx.lineTo(p.x - dx, p.y - p.len);
+          any = true;
+        }
+        if (!any) continue;
+        ctx.strokeStyle = lightPass ? `rgba(232,240,248,${al})` : `rgba(88,98,112,${al * .85})`;
+        ctx.lineWidth = lw; ctx.stroke();
       }
-      if (any) { ctx.strokeStyle = `rgba(232,240,248,${al})`; ctx.lineWidth = lw; ctx.globalAlpha = 1; ctx.stroke(); }
     }
 
     for (const p of parts) {
@@ -544,9 +676,19 @@
           drawSprite(spr, p.x, p.y, p.size, p.rot, .12 + Math.abs(flip) * .88, a);
           break;
         }
-        case 'snow':
-          drawSprite(SNOW[blurIdx(p.z, 4)], p.x, p.y, p.size, 0, 1, a * (.85 + p.z * .15));
+        case 'snow': {
+          // yorug‘ qor fonida kulrang tus; shamolda harakatdan cho‘ziladi
+          const spr = (lumAt(p.x, p.y) > .72 ? SNOW_DIM : SNOW)[blurIdx(p.z, 4)];
+          const vx = p.dx || 0, vy = p.vy;
+          const sp = Math.hypot(vx, vy);
+          if (sp > 2.2) {
+            const st = Math.min(2.2, 1 + (sp - 2.2) * .35);
+            ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(Math.atan2(vy, vx)); ctx.scale(st, 1 / Math.sqrt(st));
+            drawSprite(spr, 0, 0, p.size, 0, 1, a * (.85 + p.z * .15));
+            ctx.restore();
+          } else drawSprite(spr, p.x, p.y, p.size, 0, 1, a * (.85 + p.z * .15));
           break;
+        }
       }
     }
     ctx.globalAlpha = 1;
@@ -721,17 +863,21 @@
 
     gust = Math.max(0, wave(time * .00035));             // vaqti-vaqti bilan shamol kuchayadi
     wind = N.wind * (.75 + gust * 1.1 + wave(time * .0011 + 3) * .15);
-    if (!reduceMotion) { fogOff1 += .18 + wind * .12; fogOff2 += .32 + wind * .2; }
+    if (!reduceMotion) { fogOff1 += .18 + wind * .12; fogOff2 += .32 + wind * .2; skyOff += .05 + wind * .04; rainT += .004 + wind * .003; }
     pmx += (mx - pmx) * .035; pmy += (my - pmy) * .035;
 
     updatePhotos(time);
     ctx.clearRect(0, 0, W, H);
     drawRays(time);
     drawFlare();
+    drawSky();
     drawFog();
     drawVeil();
     updateParticles();
     drawParticles(time);
+    updateLum();
+    updateSplashes();
+    drawSplashes();
     updateDrops();
     drawDrops();
 
