@@ -79,7 +79,7 @@
         ? `<div class="thumb" style="background-image:url('${esc(asset(it.image))}');background-position:${esc(it.pos)}"></div>`
         : `<div class="thumb" style="${it.photo ? `background-image:url('${esc(asset(it.photo))}')` : ''}">${it.photo ? '' : esc(it.initials)}</div>`;
       const sub = isP
-        ? [it.kind, it.urlLabel || it.url].filter(Boolean).join(' · ')
+        ? [it.kind, (it.links || []).map((l) => (LINK_TYPES.find(([v]) => v === l.type) || [])[1]).filter(Boolean).join(', ')].filter(Boolean).join(' · ')
         : it.role;
       const extra = isP && it.status ? `<span class="pill gold">${esc(it.status)}</span>` : '';
       return `<li class="row ${isP ? '' : 'row-team'} ${it.active ? '' : 'off'}" data-id="${esc(it.id)}">
@@ -158,6 +158,13 @@
   };
   const pairRows = (rows, a, b) => rows.map((r) => `<div class="pair"><input value="${esc(r[0])}" placeholder="${a}" maxlength="40"><input value="${esc(r[1])}" placeholder="${b}" maxlength="300"><button type="button" class="icon-btn danger" data-del-pair aria-label="O‘chirish">×</button></div>`).join('');
 
+  const LINK_TYPES = [['site', 'Sayt'], ['telegram', 'Telegram bot'], ['playmarket', 'Google Play'], ['appstore', 'App Store'], ['landing', 'Landing']];
+  const LINK_PH = { site: 'https://…', telegram: 'https://t.me/…', playmarket: 'https://play.google.com/store/apps/details?id=…', appstore: 'https://apps.apple.com/…', landing: 'https://…' };
+  const linkRow = (l = { type: 'site', url: '' }) => `<div class="pair pair-link">
+    <select aria-label="Havola turi">${LINK_TYPES.map(([v, t]) => `<option value="${v}" ${l.type === v ? 'selected' : ''}>${t}</option>`).join('')}</select>
+    <input value="${esc(l.url)}" placeholder="${LINK_PH[l.type] || 'https://…'}" maxlength="300" inputmode="url">
+    <button type="button" class="icon-btn danger" data-del-pair aria-label="O‘chirish">×</button></div>`;
+
   function openEditor(item) {
     editing = item || null;
     const isP = tab === 'projects';
@@ -173,8 +180,10 @@
         ${field('f-kind', 'Turi', it.kind, { max: 60, ph: 'Veb-sayt, Telegram bot, Ilova…' })}
         ${field('f-status', 'Holat belgisi', it.status, { max: 40, ph: 'Masalan: Ishlab chiqilmoqda' })}
         ${field('f-desc', 'Qisqa tavsif', it.desc, { area: true, full: true, max: 400 })}
-        ${field('f-url', 'Havola', it.url, { max: 300, ph: 'https://…' })}
-        ${field('f-urlLabel', 'Havola matni', it.urlLabel, { max: 80, ph: 'masalan: bilimdon-ai.uz' })}
+        <div class="field full"><span>Havolalar <small>sayt, Telegram bot, Google Play, App Store, landing — ko‘pi bilan 6 ta</small></span>
+          <div class="pairs" id="projLinks">${(it.links || []).map(linkRow).join('')}</div>
+          <button type="button" class="add-line" id="addProjLink">+ havola qo‘shish</button>
+        </div>
         <div class="field full"><span>Muqova rasmi</span>
           <div class="img-pick">
             <div class="img-preview" id="imgPreview"></div>
@@ -226,6 +235,12 @@
     if (opt) setImage(opt.dataset.img);
     if (e.target.id === 'removePhoto') setImage('');
     if (e.target.matches('[data-del-pair]')) e.target.closest('.pair').remove();
+    if (e.target.id === 'addProjLink') {
+      const box = $('#projLinks');
+      if (box.children.length >= 6) return toast('Ko‘pi bilan 6 ta havola', true);
+      box.insertAdjacentHTML('beforeend', linkRow());
+      box.lastElementChild.querySelector('input').focus();
+    }
     const add = e.target.closest('[data-add-pair]');
     if (add) {
       const box = $('#' + add.dataset.addPair);
@@ -235,6 +250,9 @@
     }
   });
   $('#editFields').addEventListener('input', (e) => { if (e.target.id === 'f-pos') setImage(currentImage); });
+  $('#editFields').addEventListener('change', (e) => {
+    if (e.target.matches('.pair-link select')) e.target.nextElementSibling.placeholder = LINK_PH[e.target.value];
+  });
   $('#editFields').addEventListener('change', async (e) => {
     if (e.target.id !== 'f-file' || !e.target.files[0]) return;
     const file = e.target.files[0];
@@ -258,7 +276,8 @@
     if (!val('#f-name')) { $('#editError').textContent = 'Nomini kiriting'; $('#f-name').focus(); return; }
     const body = isP
       ? { name: val('#f-name'), word: val('#f-word'), kind: val('#f-kind'), status: val('#f-status'), desc: val('#f-desc'),
-          url: val('#f-url'), urlLabel: val('#f-urlLabel'), image: currentImage, pos: val('#f-pos'), active: $('#f-active').checked }
+          links: [...$('#projLinks').children].map((r) => ({ type: r.querySelector('select').value, url: r.querySelector('input').value.trim() })).filter((l) => l.url),
+          image: currentImage, pos: val('#f-pos'), active: $('#f-active').checked }
       : { name: val('#f-name'), role: val('#f-role'), initials: val('#f-initials'), now: val('#f-now'), bio: val('#f-bio'),
           skills: val('#f-skills').split(',').map((s) => s.trim()).filter(Boolean),
           stats: pairs('statsPairs').map(([value, label]) => ({ value, label })),

@@ -869,17 +869,18 @@
   const safeUrl = (u) => (/^(https?:\/\/|#)/i.test(u || '') ? u : '');
   const OUT = ' target="_blank" rel="noopener"';
   const ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+  const LINK_LABELS = { site: 'Sayt', telegram: 'Telegram bot', playmarket: 'Google Play', appstore: 'App Store', landing: 'Landing' };
   function projectCard(p) {
-    const href = safeUrl(p.url);
-    const tag = href ? 'a' : 'article';
-    const attrs = href ? ` href="${esc(href)}"${href.startsWith('#') ? '' : OUT}` : '';
+    const links = (p.links || []).filter((l) => safeUrl(l.url));
     const status = p.status ? `<span class="work-status">${esc(p.status)}</span> ` : '';
     const desc = p.desc || p.status ? `\n<p>${status}${esc(p.desc)}</p>` : '';
-    const foot = href ? `\n<span class="work-url">${esc(p.urlLabel || href.replace(/^https?:\/\//, ''))}${ARROW}</span>` : '';
-    return `<${tag} class="work"${attrs}>
+    const foot = links.length
+      ? `\n<div class="work-links">${links.map((l) => `<a class="work-link" href="${esc(l.url)}"${OUT}>${esc(LINK_LABELS[l.type] || 'Havola')}${ARROW}</a>`).join('')}</div>`
+      : '';
+    return `<article class="work">
       <div class="cover" data-img="${esc(p.image)}" data-pos="${esc(p.pos)}"><span class="cover-word">${esc(p.word || p.name)}</span></div>
       <div class="work-meta"><h3>${esc(p.name)}</h3><span class="mono">${esc(p.kind)}</span></div>${desc}${foot}
-    </${tag}>`;
+    </article>`;
   }
   function memberCard(t) {
     const stats = t.stats?.length ? `<dl class="person-stats">${t.stats.map((s) => `<div><dt>${esc(s.value)}</dt><dd>${esc(s.label)}</dd></div>`).join('')}</dl>` : '';

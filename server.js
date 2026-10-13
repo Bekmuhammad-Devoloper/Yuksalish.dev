@@ -33,6 +33,11 @@ function loadDb() {
   if (!fs.existsSync(DB_FILE)) fs.copyFileSync(SEED_FILE, DB_FILE);
   const db = JSON.parse(fs.readFileSync(DB_FILE, 'utf8'));
   db.projects ||= []; db.team ||= [];
+  // eski format (url/urlLabel) → links
+  for (const p of db.projects) {
+    if (!Array.isArray(p.links)) p.links = p.url ? [{ type: /t\.me\//.test(p.url) ? 'telegram' : 'site', url: p.url }] : [];
+    delete p.url; delete p.urlLabel;
+  }
   return db;
 }
 let db = loadDb();
@@ -67,6 +72,7 @@ const image = (v) => {
 const pos = (v) => (typeof v === 'string' && /^\d{1,3}% \d{1,3}%$/.test(v.trim()) ? v.trim() : '50% 50%');
 const list = (v, max) => (Array.isArray(v) ? v.slice(0, max) : []);
 
+const LINK_TYPES = ['site', 'telegram', 'playmarket', 'appstore', 'landing'];
 function cleanProject(b) {
   const name = str(b.name, 80, true);
   return {
@@ -75,8 +81,9 @@ function cleanProject(b) {
     kind: str(b.kind, 60),
     desc: str(b.desc, 400),
     status: str(b.status, 40),
-    url: url(b.url),
-    urlLabel: str(b.urlLabel, 80),
+    links: list(b.links, 6)
+      .map((l) => ({ type: LINK_TYPES.includes(l && l.type) ? l.type : 'site', url: url(l && l.url) }))
+      .filter((l) => l.url),
     image: image(b.image) || 'assets/img/yoz.jpg',
     pos: pos(b.pos),
     active: b.active !== false,

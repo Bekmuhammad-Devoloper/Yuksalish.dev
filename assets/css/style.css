@@ -311,6 +311,10 @@ h2 {
 .work-meta h3 { margin: 0; font: 500 20px/1.15 var(--f-display); letter-spacing: -.03em; }
 .work-meta .mono { color: color-mix(in srgb, var(--paper-ink) 60%, transparent); white-space: nowrap; }
 .work p { margin: 0 8px; font-size: 14px; line-height: 1.55; color: color-mix(in srgb, var(--paper-ink) 72%, transparent); }
+.work-links { margin: auto 8px 0; padding-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+.work-link { display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); color: var(--gold); text-decoration: none; font: 400 11px/1 var(--f-mono); letter-spacing: .03em; transition: background .2s, color .2s; }
+.work-link svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.work-link:hover { background: var(--gold); color: var(--navy); }
 .work-status { display: inline-block; margin-right: 6px; padding: 2px 8px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent); color: var(--gold); font: 400 11px/1.4 var(--f-mono); }
 .work-url { margin: auto 8px 0; padding-top: 14px; display: inline-flex; align-items: center; gap: 6px; font: 400 12px/1.2 var(--f-mono); letter-spacing: .02em; color: var(--gold); overflow-wrap: anywhere; }
 .work-url svg { width: 13px; height: 13px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s; }

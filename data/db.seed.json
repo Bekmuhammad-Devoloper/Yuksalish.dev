@@ -7,11 +7,15 @@
       "kind": "AI ta’lim platformasi",
       "desc": "Viktorinalar, real vaqtdagi reyting, yutuqlar va bir nechta LLM modeli asosidagi aqlli repetitor.",
       "status": "",
-      "url": "https://bilimdon-ai.uz",
-      "urlLabel": "bilimdon-ai.uz",
       "image": "assets/img/bahor.jpg",
       "pos": "22% 70%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://bilimdon-ai.uz"
+        }
+      ]
     },
     {
       "id": "p2",
@@ -20,11 +24,15 @@
       "kind": "Moliya platformasi",
       "desc": "Onlayn do‘kon va moliyaviy boshqaruv: rollar, Click va Payme to‘lovlari, o‘zbek, rus va ingliz tillarida AI moliyaviy tahlil.",
       "status": "Ishlab chiqilmoqda",
-      "url": "https://hisobchi-ai.uz",
-      "urlLabel": "hisobchi-ai.uz",
       "image": "assets/img/qish.jpg",
       "pos": "40% 75%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://hisobchi-ai.uz"
+        }
+      ]
     },
     {
       "id": "p3",
@@ -33,11 +41,15 @@
       "kind": "Klinika CRM",
       "desc": "Xususiy klinikalar uchun CRM: OneID bilan integratsiya, mijozlar ma’lumotlari xavfsiz saqlanadi, klinika jarayonlari avtomatlashadi.",
       "status": "",
-      "url": "https://orfan.uz",
-      "urlLabel": "orfan.uz",
       "image": "assets/img/yoz.jpg",
       "pos": "80% 40%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://orfan.uz"
+        }
+      ]
     },
     {
       "id": "p4",
@@ -46,11 +58,15 @@
       "kind": "Klinika tizimi",
       "desc": "Klinikalar uchun yagona tizim: tez yordam, xonalar, retseptlar va bemor to‘lovlarigacha avtomatlashtirilgan.",
       "status": "",
-      "url": "https://bees.uz",
-      "urlLabel": "bees.uz",
       "image": "assets/img/kuz.jpg",
       "pos": "15% 75%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://bees.uz"
+        }
+      ]
     },
     {
       "id": "p5",
@@ -59,11 +75,10 @@
       "kind": "AI bot",
       "desc": "Eshitish va nutqida muammosi bor bolalar uchun AI logoped yordamchisi.",
       "status": "",
-      "url": "",
-      "urlLabel": "",
       "image": "assets/img/bahor.jpg",
       "pos": "75% 45%",
-      "active": true
+      "active": true,
+      "links": []
     },
     {
       "id": "p6",
@@ -72,11 +87,10 @@
       "kind": "Taksi agregatori",
       "desc": "Qo‘qon shahridagi taksi agregatori: veb-sayt va Telegram bot.",
       "status": "",
-      "url": "",
-      "urlLabel": "",
       "image": "assets/img/kuz.jpg",
       "pos": "70% 40%",
-      "active": true
+      "active": true,
+      "links": []
     },
     {
       "id": "p7",
@@ -85,11 +99,10 @@
       "kind": "Mobil ilova",
       "desc": "Namangandagi ustalar va maishiy xizmatlarni topish ilovasi.",
       "status": "",
-      "url": "",
-      "urlLabel": "",
       "image": "assets/img/yoz.jpg",
       "pos": "20% 80%",
-      "active": true
+      "active": true,
+      "links": []
     },
     {
       "id": "p8",
@@ -98,11 +111,15 @@
       "kind": "Donat platformasi",
       "desc": "Ko‘plab o‘yinlarga donat qilish uchun platforma.",
       "status": "",
-      "url": "https://fastpin.uz",
-      "urlLabel": "fastpin.uz",
       "image": "assets/img/qish.jpg",
       "pos": "65% 70%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://fastpin.uz"
+        }
+      ]
     },
     {
       "id": "p9",
@@ -111,11 +128,15 @@
       "kind": "Ekotizim platformasi",
       "desc": "",
       "status": "",
-      "url": "https://vega.yuksalish.dev",
-      "urlLabel": "vega.yuksalish.dev",
       "image": "assets/img/yoz.jpg",
       "pos": "35% 55%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://vega.yuksalish.dev"
+        }
+      ]
     },
     {
       "id": "p10",
@@ -124,11 +145,15 @@
       "kind": "Ekotizim platformasi",
       "desc": "",
       "status": "",
-      "url": "https://selliostore.uz",
-      "urlLabel": "selliostore.uz",
       "image": "assets/img/kuz.jpg",
       "pos": "55% 70%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://selliostore.uz"
+        }
+      ]
     },
     {
       "id": "p11",
@@ -137,11 +162,15 @@
       "kind": "Veb-sayt",
       "desc": "",
       "status": "",
-      "url": "https://marjagroup.uz",
-      "urlLabel": "marjagroup.uz",
       "image": "assets/img/qish.jpg",
       "pos": "30% 60%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://marjagroup.uz"
+        }
+      ]
     },
     {
       "id": "p12",
@@ -150,11 +179,15 @@
       "kind": "Veb-sayt",
       "desc": "",
       "status": "",
-      "url": "https://farzandimedu.uz",
-      "urlLabel": "farzandimedu.uz",
       "image": "assets/img/bahor.jpg",
       "pos": "60% 75%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://farzandimedu.uz"
+        }
+      ]
     },
     {
       "id": "p13",
@@ -163,11 +196,15 @@
       "kind": "Veb-sayt",
       "desc": "",
       "status": "",
-      "url": "https://germaniya.live",
-      "urlLabel": "germaniya.live",
       "image": "assets/img/yoz.jpg",
       "pos": "75% 75%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://germaniya.live"
+        }
+      ]
     },
     {
       "id": "p14",
@@ -176,11 +213,15 @@
       "kind": "Veb-sayt",
       "desc": "",
       "status": "",
-      "url": "https://imkon-live.bekmuhammad.uz",
-      "urlLabel": "imkon-live.bekmuhammad.uz",
       "image": "assets/img/kuz.jpg",
       "pos": "30% 50%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://imkon-live.bekmuhammad.uz"
+        }
+      ]
     },
     {
       "id": "p15",
@@ -189,11 +230,15 @@
       "kind": "Veb-sayt",
       "desc": "",
       "status": "",
-      "url": "https://chinesewave.uz",
-      "urlLabel": "chinesewave.uz",
       "image": "assets/img/qish.jpg",
       "pos": "80% 55%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://chinesewave.uz"
+        }
+      ]
     },
     {
       "id": "p16",
@@ -202,11 +247,15 @@
       "kind": "Veb-sayt",
       "desc": "",
       "status": "",
-      "url": "https://uz-simcard.uz",
-      "urlLabel": "uz-simcard.uz",
       "image": "assets/img/bahor.jpg",
       "pos": "35% 40%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://uz-simcard.uz"
+        }
+      ]
     },
     {
       "id": "p17",
@@ -215,11 +264,15 @@
       "kind": "Ilova",
       "desc": "",
       "status": "",
-      "url": "https://duyo.uz",
-      "urlLabel": "duyo.uz",
       "image": "assets/img/yoz.jpg",
       "pos": "50% 70%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "site",
+          "url": "https://duyo.uz"
+        }
+      ]
     },
     {
       "id": "p18",
@@ -228,11 +281,10 @@
       "kind": "Ilova",
       "desc": "",
       "status": "",
-      "url": "",
-      "urlLabel": "",
       "image": "assets/img/kuz.jpg",
       "pos": "85% 65%",
-      "active": true
+      "active": true,
+      "links": []
     },
     {
       "id": "p19",
@@ -241,11 +293,10 @@
       "kind": "Ilova",
       "desc": "",
       "status": "",
-      "url": "",
-      "urlLabel": "",
       "image": "assets/img/qish.jpg",
       "pos": "50% 45%",
-      "active": true
+      "active": true,
+      "links": []
     },
     {
       "id": "p20",
@@ -254,11 +305,10 @@
       "kind": "Telegram bot",
       "desc": "Onlayn kurslar uchun avtomatik to‘lov.",
       "status": "",
-      "url": "",
-      "urlLabel": "",
       "image": "assets/img/bahor.jpg",
       "pos": "20% 55%",
-      "active": true
+      "active": true,
+      "links": []
     },
     {
       "id": "p21",
@@ -267,11 +317,15 @@
       "kind": "Telegram bot",
       "desc": "",
       "status": "",
-      "url": "https://t.me/oson_turktili_bot",
-      "urlLabel": "@oson_turktili_bot",
       "image": "assets/img/yoz.jpg",
       "pos": "65% 35%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "telegram",
+          "url": "https://t.me/oson_turktili_bot"
+        }
+      ]
     },
     {
       "id": "p22",
@@ -280,11 +334,15 @@
       "kind": "Telegram bot",
       "desc": "",
       "status": "",
-      "url": "https://t.me/Yuksalishdev_ITjobsbot",
-      "urlLabel": "@Yuksalishdev_ITjobsbot",
       "image": "assets/img/kuz.jpg",
       "pos": "50% 85%",
-      "active": true
+      "active": true,
+      "links": [
+        {
+          "type": "telegram",
+          "url": "https://t.me/Yuksalishdev_ITjobsbot"
+        }
+      ]
     }
   ],
   "team": [
