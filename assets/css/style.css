@@ -538,3 +538,28 @@ h2 {
 .work-next:hover .next-cta i { background: var(--gold); color: var(--navy); }
 .work-next:hover .next-cta svg { transform: translateX(3px); }
 @media (min-width: 1600px) { .work-next .work-title { font-size: 28px; } }
+
+/* ---------- monoblok / 2K–4K: sarlavhalar ham ekranga mos kattalashadi ---------- */
+@media (min-width: 1600px) {
+  .headline { font-size: clamp(96px, 6.2vw, 150px); }
+  .manifest-text { font-size: clamp(58px, 3.6vw, 84px); }
+  h2 { font-size: clamp(100px, 6.4vw, 150px); }
+  .kicker, .ascend { font-size: 12px; }
+  .btn { --h: 58px; font-size: 16px; }
+  .route-head h3, .index-head h3 { font-size: 34px; }
+  .steps h4 { font-size: 22px; }
+  .steps p { font-size: 15px; }
+}
+@media (min-width: 2200px) {
+  .headline { font-size: 172px; }
+  .manifest-text { font-size: 96px; }
+  h2 { font-size: 168px; }
+  .hero-lead, .stage-lead { font-size: 24px; }
+  .kicker, .ascend, .mono { font-size: 13px; }
+  .btn { --h: 64px; font-size: 18px; padding-left: 30px; }
+  .nav-links a { font-size: 16px; padding: 11px 20px; }
+  .steps h4 { font-size: 26px; }
+  .steps p, .channels a { font-size: 17px; }
+  .field input, .field textarea { font-size: 19px; }
+  .hud { font-size: 13px; padding: 12px 20px 12px 14px; }
+}
