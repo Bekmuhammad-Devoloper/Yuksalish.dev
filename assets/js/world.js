@@ -847,7 +847,7 @@
   });
   function sendForm(body) {
     note.textContent = 'Pochta dasturingiz ochilmoqda…';
-    location.href = `mailto:bekmuhammad.devoloper@gmail.com?subject=${encodeURIComponent('Yangi loyiha — Yuksalish.dev')}&body=${encodeURIComponent(body)}`;
+    location.href = `mailto:yuksalishdev@gmail.com?subject=${encodeURIComponent('Yangi loyiha — Yuksalish.dev')}&body=${encodeURIComponent(body)}`;
   }
 
   $('#year').textContent = new Date().getFullYear();
