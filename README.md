@@ -37,3 +37,8 @@ npx serve .
 - Logotip: `assets/brand/logo-mark.svg` (qush), `assets/brand/logo-wordmark.svg` (yozuv), `assets/brand/favicon.svg`.
   Asl rasmdan vektorlashtirilgan; dizaynerdan asl vektor fayl olinsa, shu fayllarni almashtirish kifoya.
 - Ranglar: navy `#13265a`, shampan-oltin `#c9b48a` (saytda `--navy`, `--gold`).
+
+## Jamoa
+
+`index.html` dagi `#jamoa` bo‘limi. Rasmlar: `assets/team/bekmuhammad.jpg`, `assets/team/ziyodulloh.jpg` (4:5 portret).
+Rasm topilmasa, o‘rnida bosh harflar ko‘rsatiladi.
