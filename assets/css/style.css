@@ -447,3 +447,39 @@ h2 {
   .stage-head { margin-bottom: 14vh; }
   .headline { font-size: 11.5vw; }
 }
+
+/* ---------- katta ekranlar (1600px va undan keng) ---------- */
+@media (min-width: 1600px) {
+  :root { --col: min(1560px, calc(100% - 2 * var(--gutter))); }
+  body { font-size: 17px; }
+  .works-track { padding: 0 max(var(--gutter), calc((100vw - 1560px) / 2)); gap: 32px; }
+  .work { width: clamp(380px, 24vw, 480px); }
+  .work-meta h3 { font-size: 23px; }
+  .work p { font-size: 15px; }
+  .cover-word { font-size: clamp(52px, 3.4vw, 72px); }
+  .team-grid { gap: 28px; }
+  .person { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }
+  .person h3 { font-size: 36px; }
+  .person-bio { font-size: 16px; }
+  .svc-grid { gap: 18px; }
+  .svc-card { padding: 28px 26px; }
+  .svc-card h3 { font-size: 24px; }
+  .svc-card > p, .svc-list { font-size: 15px; }
+  .hero-lead, .stage-lead { font-size: 21px; }
+}
+@media (min-width: 2200px) {
+  :root { --col: min(2000px, calc(100% - 2 * var(--gutter))); --gutter: 64px; }
+  body { font-size: 19px; }
+  .works-track { padding: 0 max(var(--gutter), calc((100vw - 2000px) / 2)); gap: 40px; }
+  .work { width: clamp(480px, 23vw, 600px); }
+  .work-meta h3 { font-size: 28px; }
+  .work p { font-size: 17px; }
+  .cover-word { font-size: 84px; }
+  .person h3 { font-size: 44px; }
+  .person-bio, .svc-card > p, .svc-list { font-size: 17px; }
+  .person-skills li, .work-link { font-size: 14px; }
+  .svc-card h3 { font-size: 28px; }
+  .nav { font-size: 16px; }
+  .brand-mark { height: 46px; }
+  .brand-word { height: 21px; }
+}
