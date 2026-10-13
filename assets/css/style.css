@@ -218,6 +218,7 @@ main { position: relative; z-index: 3; }
 .person-skills li { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--paper-line); font: 400 12px/1 var(--f-mono); letter-spacing: .02em; }
 .person-now { margin: 0; display: grid; gap: 4px; font-size: 14px; }
 .person-now .mono { color: color-mix(in srgb, var(--paper-ink) 55%, transparent); }
+.person-links { display: flex; flex-wrap: wrap; gap: 10px 22px; }
 .person-link { justify-self: start; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; text-decoration: none; color: var(--gold); border-bottom: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); padding-bottom: 2px; }
 .person-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s; }
 .person-link:hover svg { transform: translate(2px, -2px); }
@@ -305,10 +306,11 @@ h2 {
 .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, .55)); }
 .work:hover .cover { background-size: 280% auto; }
 .cover-word { position: relative; z-index: 1; font: 600 clamp(34px, 3.6vw, 52px)/.95 var(--f-display); letter-spacing: -.055em; color: #fff; }
-.work-meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 18px 8px 6px; }
+.work-meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; margin: 18px 8px 6px; }
 .work-meta h3 { margin: 0; font: 500 20px/1.15 var(--f-display); letter-spacing: -.03em; }
 .work-meta .mono { color: color-mix(in srgb, var(--paper-ink) 60%, transparent); white-space: nowrap; }
 .work p { margin: 0 8px; font-size: 14px; line-height: 1.55; color: color-mix(in srgb, var(--paper-ink) 72%, transparent); }
+.work-status { display: inline-block; margin-right: 6px; padding: 2px 8px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent); color: var(--gold); font: 400 11px/1.4 var(--f-mono); }
 .work-url { margin: auto 8px 0; padding-top: 14px; display: inline-flex; align-items: center; gap: 6px; font: 400 12px/1.2 var(--f-mono); letter-spacing: .02em; color: var(--gold); overflow-wrap: anywhere; }
 .work-url svg { width: 13px; height: 13px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s; }
 .work:hover .work-url svg { transform: translate(2px, -2px); }
