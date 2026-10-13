@@ -852,6 +852,14 @@
 
   $('#year').textContent = new Date().getFullYear();
 
+  // Jamoa rasmlari: fayl bo‘lsa ko‘rsatiladi, bo‘lmasa bosh harflar qoladi
+  $$('.person-photo[data-photo]').forEach((el) => {
+    const src = el.dataset.photo;
+    const probe = new Image();
+    probe.onload = () => { el.style.backgroundImage = `url("${src}")`; el.style.backgroundPosition = 'center 20%'; el.classList.add('has-photo'); };
+    probe.src = src;
+  });
+
   /* ================= Asosiy sikl ================= */
   function frame(time) {
     const s = readScroll();
