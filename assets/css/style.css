@@ -325,6 +325,23 @@ h2 {
 .works-bar { width: var(--col); margin: 4vh auto 0; height: 2px; background: color-mix(in srgb, var(--ink) 20%, transparent); }
 .works-bar i { display: block; height: 100%; width: 0; background: var(--accent); }
 
+/* ---------- boshqa loyihalar ro‘yxati ---------- */
+.more-works { width: var(--col); margin: 0 auto; padding: 4vh 0 16vh; }
+.works-index { padding: clamp(22px, 3vw, 40px); }
+.index-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; margin-bottom: 18px; }
+.index-head h3 { margin: 0; font: 500 clamp(22px, 2.2vw, 30px)/1 var(--f-display); letter-spacing: -.035em; }
+.index-head p { margin: 0; color: var(--gold); }
+.index-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
+.index-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name link" "kind kind"; gap: 4px 16px; align-items: baseline; padding: 14px 0; border-top: 1px solid var(--paper-line); }
+.idx-name { grid-area: name; font: 500 18px/1.2 var(--f-display); letter-spacing: -.02em; }
+.idx-kind { grid-area: kind; color: color-mix(in srgb, var(--paper-ink) 60%, transparent); letter-spacing: .04em; }
+.idx-link { grid-area: link; justify-self: end; min-width: 0; }
+.idx-link a { display: inline-flex; align-items: center; gap: 6px; font: 400 12px/1.2 var(--f-mono); color: var(--gold); text-decoration: none; overflow-wrap: anywhere; }
+.idx-link a svg { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s; }
+.idx-link a:hover svg { transform: translate(2px, -2px); }
+.idx-link .muted { color: color-mix(in srgb, var(--paper-ink) 35%, transparent); }
+@media (max-width: 760px) { .index-list { grid-template-columns: 1fr; } }
+
 /* ---------- aloqa ---------- */
 .summit { padding-bottom: 0; min-height: 100vh; }
 .summit .stage-head { margin-bottom: 8vh; }
