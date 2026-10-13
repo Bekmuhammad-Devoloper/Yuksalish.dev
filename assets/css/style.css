@@ -287,7 +287,7 @@ h2 {
 .works-head h2 { font-size: clamp(40px, 6vw, 96px); }
 .works-track { display: flex; gap: clamp(16px, 2vw, 28px); width: max-content; padding: 0 max(var(--gutter), calc((100vw - 1240px) / 2)); will-change: transform; }
 .work {
-  flex: none; width: clamp(270px, 30vw, 420px);
+  flex: none; width: clamp(260px, 26vw, 360px);
   display: flex; flex-direction: column;
   text-decoration: none; color: var(--paper-ink);
   background: var(--paper); border: 1px solid var(--paper-line); border-radius: 4px;
@@ -309,6 +309,10 @@ h2 {
 .work-meta h3 { margin: 0; font: 500 20px/1.15 var(--f-display); letter-spacing: -.03em; }
 .work-meta .mono { color: color-mix(in srgb, var(--paper-ink) 60%, transparent); white-space: nowrap; }
 .work p { margin: 0 8px; font-size: 14px; line-height: 1.55; color: color-mix(in srgb, var(--paper-ink) 72%, transparent); }
+.work-url { margin: auto 8px 0; padding-top: 14px; display: inline-flex; align-items: center; gap: 6px; font: 400 12px/1.2 var(--f-mono); letter-spacing: .02em; color: var(--gold); overflow-wrap: anywhere; }
+.work-url svg { width: 13px; height: 13px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s; }
+.work:hover .work-url svg { transform: translate(2px, -2px); }
+.work p { margin-top: 0; }
 .work-next { justify-content: space-between; padding: 28px; background: #f6f3ee; color: var(--navy); border-color: transparent; min-height: 100%; }
 .work-next .mono { opacity: .6; }
 .work-next h3 { margin: 0; font: 600 clamp(32px, 3.2vw, 48px)/1 var(--f-display); letter-spacing: -.05em; }
