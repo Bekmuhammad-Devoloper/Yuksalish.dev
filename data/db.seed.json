@@ -463,6 +463,28 @@
         "Rezyume yuborish",
         "Yo‘nalish bo‘yicha saralash"
       ]
+    },
+    {
+      "id": "p23",
+      "name": "Mehrnoma",
+      "word": "Mehrnoma",
+      "kind": "Veb-platforma",
+      "status": "",
+      "desc": "Yaqinlaringizga iliq tabriklar va taklifnomalarni chiroyli onlayn ko‘rinishda tayyorlab yuborish platformasi.",
+      "features": [
+        "Tayyor shablonlar",
+        "Matn va rasmni moslashtirish",
+        "Havola orqali ulashish"
+      ],
+      "links": [
+        {
+          "type": "site",
+          "url": "https://mehrnomam.uz"
+        }
+      ],
+      "image": "assets/img/bahor.jpg",
+      "pos": "70% 60%",
+      "active": true
     }
   ],
   "team": [
