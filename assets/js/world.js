@@ -906,7 +906,7 @@
       ? `<div class="work-links">${links.map((l) => `<a class="work-link" data-type="${esc(l.type)}" href="${esc(l.url)}"${OUT}>${esc(LINK_LABELS[l.type] || 'Havola')}</a>`).join('')}</div>`
       : '';
     return `<article class="work">
-      <div class="cover" data-img="${esc(p.image)}" data-pos="${esc(p.pos)}"><span class="cover-num">${num}</span>${p.status ? `<span class="work-status">${esc(p.status)}</span>` : ''}</div>
+      <div class="cover${/^assets\/img\//.test(p.image || '') ? '' : ' banner'}" data-img="${esc(p.image)}" data-pos="${esc(p.pos)}"><span class="cover-num">${num}</span>${p.status ? `<span class="work-status">${esc(p.status)}</span>` : ''}</div>
       <div class="work-body">
         ${p.kind ? `<p class="work-kind">${esc(p.kind)}</p>` : ''}
         <h3 class="work-title">${esc(p.name)}</h3>
@@ -939,7 +939,7 @@
       next.insertAdjacentHTML('beforebegin', data.projects.map(projectCard).join(''));
       track.querySelectorAll('.cover[data-img]').forEach((c) => {
         c.style.backgroundImage = `url("${c.dataset.img}")`;
-        c.style.backgroundPosition = c.dataset.pos;
+        if (!c.classList.contains('banner')) c.style.backgroundPosition = c.dataset.pos;
       });
     }
     if (Array.isArray(data.team)) {

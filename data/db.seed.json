@@ -7,8 +7,8 @@
       "kind": "AI ta’lim platformasi",
       "desc": "Sun’iy intellekt asosidagi ta’lim platformasi. O‘quvchilar fanlar bo‘yicha viktorinalar yechadi, reytingda bellashadi va AI repetitordan savollariga javob oladi.",
       "status": "",
-      "image": "assets/img/bahor.jpg",
-      "pos": "22% 70%",
+      "image": "assets/projects/bilimdon.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -30,8 +30,8 @@
       "kind": "Moliya platformasi",
       "desc": "Kichik biznes uchun onlayn do‘kon va moliyaviy boshqaruv platformasi. Savdo, xarajat va foydani AI tahlil qiladi va tavsiyalar beradi.",
       "status": "Ishlab chiqilmoqda",
-      "image": "assets/img/qish.jpg",
-      "pos": "40% 75%",
+      "image": "assets/projects/hisobchi.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -53,8 +53,8 @@
       "kind": "Klinika CRM",
       "desc": "Xususiy klinikalar uchun CRM tizimi. Bemorlar bazasi, qabul jadvali va shifokorlar ishi bir joyda boshqariladi.",
       "status": "",
-      "image": "assets/img/yoz.jpg",
-      "pos": "80% 40%",
+      "image": "assets/projects/orfan.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -76,8 +76,8 @@
       "kind": "Klinika tizimi",
       "desc": "Klinikaning butun ish jarayonini avtomatlashtiradigan tizim: bemor qabul qilinganidan to‘lovgacha.",
       "status": "",
-      "image": "assets/img/kuz.jpg",
-      "pos": "15% 75%",
+      "image": "assets/projects/bees.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -99,8 +99,8 @@
       "kind": "AI yordamchi o‘qituvchi",
       "desc": "Support teacher (yordamchi o‘qituvchi) vazifasini bajaradigan sun’iy intellekt. O‘quvchilar savollariga istalgan vaqtda javob beradi, mavzuni tushuntiradi va o‘qituvchining yukini yengillashtiradi.",
       "status": "",
-      "image": "assets/img/bahor.jpg",
-      "pos": "75% 45%",
+      "image": "assets/projects/hilal.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [],
       "features": [

@@ -62,7 +62,7 @@ const url = (v) => {
   if (/^https?:\/\/[^\s"'<>]+$/i.test(s) || /^#[\w-]*$/.test(s)) return s;
   throw new BadRequest('Havola http:// yoki https:// bilan boshlanishi kerak');
 };
-const IMAGE_RE = /^assets\/(img|team|uploads)\/[\w.-]+\.(jpe?g|png|webp)$/i;
+const IMAGE_RE = /^assets\/(img|team|uploads|projects)\/[\w.-]+\.(jpe?g|png|webp)$/i;
 const image = (v) => {
   const s = str(v, 200);
   if (!s) return '';
