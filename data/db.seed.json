@@ -96,17 +96,18 @@
       "id": "p5",
       "name": "Hilal AI",
       "word": "Hilal AI",
-      "kind": "AI bot",
-      "desc": "Sun’iy intellekt asosidagi aqlli yordamchi bot. Foydalanuvchi savollariga tez va tushunarli javob beradi.",
+      "kind": "AI yordamchi o‘qituvchi",
+      "desc": "Support teacher (yordamchi o‘qituvchi) vazifasini bajaradigan sun’iy intellekt. O‘quvchilar savollariga istalgan vaqtda javob beradi, mavzuni tushuntiradi va o‘qituvchining yukini yengillashtiradi.",
       "status": "",
       "image": "assets/img/bahor.jpg",
       "pos": "75% 45%",
       "active": true,
       "links": [],
       "features": [
-        "LLM asosidagi suhbat",
-        "O‘zbek tilida javoblar",
-        "Telegram orqali foydalanish"
+        "Savollarga 24/7 javob",
+        "Mavzuni sodda tilda tushuntirish",
+        "Uy vazifasi va mashqlarda yordam",
+        "O‘qituvchi uchun yengillik"
       ]
     },
     {
