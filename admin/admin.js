@@ -179,7 +179,8 @@
         ${field('f-word', 'Muqovadagi so‘z', it.word, { max: 24, hint: 'bo‘sh bo‘lsa — nomning birinchi so‘zi' })}
         ${field('f-kind', 'Turi', it.kind, { max: 60, ph: 'Veb-sayt, Telegram bot, Ilova…' })}
         ${field('f-status', 'Holat belgisi', it.status, { max: 40, ph: 'Masalan: Ishlab chiqilmoqda' })}
-        ${field('f-desc', 'Qisqa tavsif', it.desc, { area: true, full: true, max: 400 })}
+        ${field('f-desc', 'Tavsif', it.desc, { area: true, full: true, max: 600 })}
+        ${field('f-feats', 'Imkoniyatlar', (it.features || []).join('\n'), { area: true, full: true, max: 500, rows: 4, hint: 'har birini yangi qatordan yozing, ko‘pi bilan 6 ta' })}
         <div class="field full"><span>Havolalar <small>sayt, Telegram bot, Google Play, App Store, landing — ko‘pi bilan 6 ta</small></span>
           <div class="pairs" id="projLinks">${(it.links || []).map(linkRow).join('')}</div>
           <button type="button" class="add-line" id="addProjLink">+ havola qo‘shish</button>
@@ -275,7 +276,7 @@
     const isP = tab === 'projects';
     if (!val('#f-name')) { $('#editError').textContent = 'Nomini kiriting'; $('#f-name').focus(); return; }
     const body = isP
-      ? { name: val('#f-name'), word: val('#f-word'), kind: val('#f-kind'), status: val('#f-status'), desc: val('#f-desc'),
+      ? { name: val('#f-name'), word: val('#f-word'), kind: val('#f-kind'), status: val('#f-status'), desc: val('#f-desc'), features: val('#f-feats').split('\n').map((s) => s.trim()).filter(Boolean),
           links: [...$('#projLinks').children].map((r) => ({ type: r.querySelector('select').value, url: r.querySelector('input').value.trim() })).filter((l) => l.url),
           image: currentImage, pos: val('#f-pos'), active: $('#f-active').checked }
       : { name: val('#f-name'), role: val('#f-role'), initials: val('#f-initials'), now: val('#f-now'), bio: val('#f-bio'),

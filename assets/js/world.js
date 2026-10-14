@@ -911,6 +911,7 @@
         ${p.kind ? `<p class="work-kind">${esc(p.kind)}</p>` : ''}
         <h3 class="work-title">${esc(p.name)}</h3>
         ${p.desc ? `<p class="work-desc">${esc(p.desc)}</p>` : ''}
+        ${p.features?.length ? `<ul class="work-feats">${p.features.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
       </div>
       ${foot}
     </article>`;

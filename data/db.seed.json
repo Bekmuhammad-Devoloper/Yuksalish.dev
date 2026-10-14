@@ -5,7 +5,7 @@
       "name": "Bilimdon AI",
       "word": "Bilimdon",
       "kind": "AI ta’lim platformasi",
-      "desc": "Viktorinalar, real vaqtdagi reyting, yutuqlar va bir nechta LLM modeli asosidagi aqlli repetitor.",
+      "desc": "Sun’iy intellekt asosidagi ta’lim platformasi. O‘quvchilar fanlar bo‘yicha viktorinalar yechadi, reytingda bellashadi va AI repetitordan savollariga javob oladi.",
       "status": "",
       "image": "assets/img/bahor.jpg",
       "pos": "22% 70%",
@@ -15,6 +15,12 @@
           "type": "site",
           "url": "https://bilimdon-ai.uz"
         }
+      ],
+      "features": [
+        "Toifalangan viktorinalar va testlar",
+        "Real vaqtdagi reyting va yutuqlar",
+        "Bir nechta LLM modeli asosidagi AI repetitor",
+        "Telegram bot va WebSocket bildirishnomalari"
       ]
     },
     {
@@ -22,7 +28,7 @@
       "name": "Hisobchi-AI",
       "word": "Hisobchi",
       "kind": "Moliya platformasi",
-      "desc": "Onlayn do‘kon va moliyaviy boshqaruv: rollar, Click va Payme to‘lovlari, o‘zbek, rus va ingliz tillarida AI moliyaviy tahlil.",
+      "desc": "Kichik biznes uchun onlayn do‘kon va moliyaviy boshqaruv platformasi. Savdo, xarajat va foydani AI tahlil qiladi va tavsiyalar beradi.",
       "status": "Ishlab chiqilmoqda",
       "image": "assets/img/qish.jpg",
       "pos": "40% 75%",
@@ -32,6 +38,12 @@
           "type": "site",
           "url": "https://hisobchi-ai.uz"
         }
+      ],
+      "features": [
+        "Rollar bo‘yicha boshqaruv",
+        "Click va Payme to‘lovlari",
+        "O‘zbek, rus va ingliz tillarida AI tahlil",
+        "Yuqori yuklamaga mos arxitektura"
       ]
     },
     {
@@ -39,7 +51,7 @@
       "name": "Orfan",
       "word": "Orfan",
       "kind": "Klinika CRM",
-      "desc": "Xususiy klinikalar uchun CRM: OneID bilan integratsiya, mijozlar ma’lumotlari xavfsiz saqlanadi, klinika jarayonlari avtomatlashadi.",
+      "desc": "Xususiy klinikalar uchun CRM tizimi. Bemorlar bazasi, qabul jadvali va shifokorlar ishi bir joyda boshqariladi.",
       "status": "",
       "image": "assets/img/yoz.jpg",
       "pos": "80% 40%",
@@ -49,6 +61,12 @@
           "type": "site",
           "url": "https://orfan.uz"
         }
+      ],
+      "features": [
+        "OneID orqali bemorni tezkor ro‘yxatga olish",
+        "Bemorlar tarixi xavfsiz saqlanadi",
+        "Qabullar jadvali va eslatmalar",
+        "Hisobot va statistika"
       ]
     },
     {
@@ -56,7 +74,7 @@
       "name": "Bees",
       "word": "Bees",
       "kind": "Klinika tizimi",
-      "desc": "Klinikalar uchun yagona tizim: tez yordam, xonalar, retseptlar va bemor to‘lovlarigacha avtomatlashtirilgan.",
+      "desc": "Klinikaning butun ish jarayonini avtomatlashtiradigan tizim: bemor qabul qilinganidan to‘lovgacha.",
       "status": "",
       "image": "assets/img/kuz.jpg",
       "pos": "15% 75%",
@@ -66,6 +84,12 @@
           "type": "site",
           "url": "https://bees.uz"
         }
+      ],
+      "features": [
+        "Tez yordam va navbat boshqaruvi",
+        "Xonalar va shifokorlar bandligi",
+        "Elektron retseptlar",
+        "Bemor to‘lovlari va kassa"
       ]
     },
     {
@@ -73,43 +97,61 @@
       "name": "Hilal AI · Nutq yo‘li",
       "word": "Hilal AI",
       "kind": "AI bot",
-      "desc": "Eshitish va nutqida muammosi bor bolalar uchun AI logoped yordamchisi.",
+      "desc": "Eshitish va nutqida muammosi bor bolalar uchun AI logoped yordamchisi. Ota-onalar uyda ham bola bilan muntazam mashg‘ulot o‘tkaza oladi.",
       "status": "",
       "image": "assets/img/bahor.jpg",
       "pos": "75% 45%",
       "active": true,
-      "links": []
+      "links": [],
+      "features": [
+        "Nutqni rivojlantiruvchi mashqlar",
+        "AI orqali talaffuzni tahlil qilish",
+        "Bolaning rivojlanishini kuzatish",
+        "Ota-onalar uchun tavsiyalar"
+      ]
     },
     {
       "id": "p6",
       "name": "O‘zimiz Taxi",
       "word": "Taxi",
       "kind": "Taksi agregatori",
-      "desc": "Qo‘qon shahridagi taksi agregatori: veb-sayt va Telegram bot.",
+      "desc": "Qo‘qon shahri uchun taksi agregatori. Mijoz sayt yoki Telegram bot orqali bir necha soniyada taksi chaqiradi.",
       "status": "",
       "image": "assets/img/kuz.jpg",
       "pos": "70% 40%",
       "active": true,
-      "links": []
+      "links": [],
+      "features": [
+        "Telegram bot orqali buyurtma",
+        "Haydovchilarga avtomatik taqsimlash",
+        "Narxni oldindan hisoblash",
+        "Haydovchilar uchun panel"
+      ]
     },
     {
       "id": "p7",
       "name": "Xizmat24",
       "word": "Xizmat24",
       "kind": "Mobil ilova",
-      "desc": "Namangandagi ustalar va maishiy xizmatlarni topish ilovasi.",
+      "desc": "Namangan shahridagi ustalar va maishiy xizmatlarni topish ilovasi. Kerakli ustani topib, unga to‘g‘ridan-to‘g‘ri buyurtma berish mumkin.",
       "status": "",
       "image": "assets/img/yoz.jpg",
       "pos": "20% 80%",
       "active": true,
-      "links": []
+      "links": [],
+      "features": [
+        "Santexnik, elektrik va boshqa ustalar katalogi",
+        "Reyting va sharhlar",
+        "Ilova ichida buyurtma berish",
+        "Ustalar uchun profil"
+      ]
     },
     {
       "id": "p8",
       "name": "Fastpin",
       "word": "Fastpin",
       "kind": "Donat platformasi",
-      "desc": "Ko‘plab o‘yinlarga donat qilish uchun platforma.",
+      "desc": "Ko‘plab mashhur o‘yinlarga tez va xavfsiz donat qilish platformasi. To‘lov qilingach, o‘yin valyutasi avtomatik yetkaziladi.",
       "status": "",
       "image": "assets/img/qish.jpg",
       "pos": "65% 70%",
@@ -119,6 +161,12 @@
           "type": "site",
           "url": "https://fastpin.uz"
         }
+      ],
+      "features": [
+        "Ko‘plab o‘yinlar uchun donat",
+        "Mahalliy to‘lov tizimlari",
+        "Avtomatik yetkazib berish",
+        "Buyurtmalar tarixi"
       ]
     },
     {
@@ -136,6 +184,11 @@
           "type": "site",
           "url": "https://vega.yuksalish.dev"
         }
+      ],
+      "features": [
+        "Yagona hisob orqali kirish",
+        "Xizmatlar uchun umumiy boshqaruv paneli",
+        "Rollar va kirish huquqlari"
       ]
     },
     {
@@ -143,7 +196,7 @@
       "name": "Sellio Store",
       "word": "Sellio",
       "kind": "Ekotizim platformasi",
-      "desc": "Sotuvchilar uchun ekotizim: onlayn do‘kon, tovarlar katalogi, buyurtma va to‘lovlarni bir joyda boshqarish.",
+      "desc": "Sotuvchilar uchun ekotizim: onlayn do‘kon ochish, tovarlarni boshqarish va buyurtmalarni qabul qilish bir joyda.",
       "status": "",
       "image": "assets/img/kuz.jpg",
       "pos": "55% 70%",
@@ -153,6 +206,12 @@
           "type": "site",
           "url": "https://selliostore.uz"
         }
+      ],
+      "features": [
+        "Tovarlar katalogi va qoldiqlar",
+        "Buyurtmalar va yetkazish",
+        "Onlayn to‘lovlar",
+        "Savdo statistikasi"
       ]
     },
     {
@@ -160,7 +219,7 @@
       "name": "Marja Group",
       "word": "Marja",
       "kind": "Veb-sayt",
-      "desc": "Kompaniya uchun korporativ sayt: faoliyat yo‘nalishlari, xizmatlar va bog‘lanish uchun ariza qoldirish.",
+      "desc": "Kompaniya uchun korporativ sayt: faoliyat yo‘nalishlari, xizmatlar va hamkorlik uchun ariza qoldirish.",
       "status": "",
       "image": "assets/img/qish.jpg",
       "pos": "30% 60%",
@@ -170,6 +229,11 @@
           "type": "site",
           "url": "https://marjagroup.uz"
         }
+      ],
+      "features": [
+        "Kompaniya va xizmatlar taqdimoti",
+        "Ariza qoldirish formasi",
+        "Telefon va kompyuterga moslashuvchan dizayn"
       ]
     },
     {
@@ -177,7 +241,7 @@
       "name": "Farzandim Edu",
       "word": "Farzandim",
       "kind": "Veb-sayt",
-      "desc": "Ota-onalar va bolalar uchun ta’lim sayti: kurslar, darslar haqida ma’lumot va onlayn yozilish.",
+      "desc": "Ota-onalar va bolalar uchun ta’lim sayti. Kurslar haqida ma’lumot olib, onlayn ro‘yxatdan o‘tish mumkin.",
       "status": "",
       "image": "assets/img/bahor.jpg",
       "pos": "60% 75%",
@@ -187,6 +251,11 @@
           "type": "site",
           "url": "https://farzandimedu.uz"
         }
+      ],
+      "features": [
+        "Kurslar va yo‘nalishlar",
+        "Onlayn ro‘yxatdan o‘tish",
+        "Ota-onalar uchun ma’lumotlar"
       ]
     },
     {
@@ -204,6 +273,11 @@
           "type": "site",
           "url": "https://germaniya.live"
         }
+      ],
+      "features": [
+        "Hujjatlar va jarayon bo‘yicha qo‘llanmalar",
+        "Konsultatsiyaga yozilish",
+        "Ko‘p beriladigan savollar"
       ]
     },
     {
@@ -211,7 +285,7 @@
       "name": "Imkon Live",
       "word": "Imkon",
       "kind": "Veb-sayt",
-      "desc": "Imkon loyihasi uchun sayt: xizmatlar taqdimoti va foydalanuvchilardan ariza qabul qilish.",
+      "desc": "Imkon loyihasining sayti: xizmatlar taqdimoti va foydalanuvchilardan ariza qabul qilish.",
       "status": "",
       "image": "assets/img/kuz.jpg",
       "pos": "30% 50%",
@@ -221,6 +295,11 @@
           "type": "site",
           "url": "https://imkon-live.bekmuhammad.uz"
         }
+      ],
+      "features": [
+        "Xizmatlar taqdimoti",
+        "Onlayn ariza",
+        "Moslashuvchan dizayn"
       ]
     },
     {
@@ -228,7 +307,7 @@
       "name": "Chinese Wave",
       "word": "Chinese",
       "kind": "Veb-sayt",
-      "desc": "Xitoy tilini o‘rganish markazi sayti: kurslar, darajalar va onlayn ro‘yxatdan o‘tish.",
+      "desc": "Xitoy tilini o‘rganish markazi sayti. Kurslar, darajalar va o‘qituvchilar haqida ma’lumot, onlayn ro‘yxatdan o‘tish.",
       "status": "",
       "image": "assets/img/qish.jpg",
       "pos": "80% 55%",
@@ -238,6 +317,11 @@
           "type": "site",
           "url": "https://chinesewave.uz"
         }
+      ],
+      "features": [
+        "HSK darajalari bo‘yicha kurslar",
+        "O‘qituvchilar haqida ma’lumot",
+        "Onlayn ro‘yxatdan o‘tish"
       ]
     },
     {
@@ -255,6 +339,11 @@
           "type": "site",
           "url": "https://uz-simcard.uz"
         }
+      ],
+      "features": [
+        "Operatorlar va tariflarni solishtirish",
+        "Chiroyli raqam tanlash",
+        "Onlayn buyurtma"
       ]
     },
     {
@@ -262,7 +351,7 @@
       "name": "Duyo",
       "word": "Duyo",
       "kind": "Ilova",
-      "desc": "Foydalanuvchilarga kundalik xizmatlarni qulay qiladigan mobil ilova.",
+      "desc": "Kundalik xizmatlarni bir ilovada qulay qiladigan mobil ilova.",
       "status": "",
       "image": "assets/img/yoz.jpg",
       "pos": "50% 70%",
@@ -272,6 +361,11 @@
           "type": "site",
           "url": "https://duyo.uz"
         }
+      ],
+      "features": [
+        "Android va iOS uchun",
+        "Qulay va tez interfeys",
+        "Push-bildirishnomalar"
       ]
     },
     {
@@ -279,12 +373,17 @@
       "name": "Parvoz",
       "word": "Parvoz",
       "kind": "Ilova",
-      "desc": "Parvoz loyihasi uchun mobil ilova: qulay interfeys va tezkor ishlash.",
+      "desc": "Parvoz loyihasi uchun mobil ilova: tezkor ishlash va qulay interfeys.",
       "status": "",
       "image": "assets/img/kuz.jpg",
       "pos": "85% 65%",
       "active": true,
-      "links": []
+      "links": [],
+      "features": [
+        "Android va iOS uchun",
+        "Foydalanuvchi profili",
+        "Push-bildirishnomalar"
+      ]
     },
     {
       "id": "p19",
@@ -296,19 +395,30 @@
       "image": "assets/img/qish.jpg",
       "pos": "50% 45%",
       "active": true,
-      "links": []
+      "links": [],
+      "features": [
+        "Niyat va maqsadlar ro‘yxati",
+        "Eslatmalar",
+        "Natijalarni kuzatish"
+      ]
     },
     {
       "id": "p20",
       "name": "KursPay",
       "word": "KursPay",
       "kind": "Telegram bot",
-      "desc": "Onlayn kurslar uchun avtomatik to‘lov.",
+      "desc": "Onlayn kurslar uchun Telegram bot. O‘quvchi to‘lov qiladi va bot uni avtomatik ravishda yopiq kanal yoki guruhga qo‘shadi.",
       "status": "",
       "image": "assets/img/bahor.jpg",
       "pos": "20% 55%",
       "active": true,
-      "links": []
+      "links": [],
+      "features": [
+        "Avtomatik to‘lov qabul qilish",
+        "Yopiq kanalga avtomatik qo‘shish",
+        "Obuna muddatini nazorat qilish",
+        "Admin uchun hisobotlar"
+      ]
     },
     {
       "id": "p21",
@@ -325,6 +435,11 @@
           "type": "telegram",
           "url": "https://t.me/oson_turktili_bot"
         }
+      ],
+      "features": [
+        "Kunlik qisqa darslar",
+        "So‘z yodlash mashqlari",
+        "Testlar va natijalar"
       ]
     },
     {
@@ -342,6 +457,11 @@
           "type": "telegram",
           "url": "https://t.me/Yuksalishdev_ITjobsbot"
         }
+      ],
+      "features": [
+        "Vakansiya joylash",
+        "Rezyume yuborish",
+        "Yo‘nalish bo‘yicha saralash"
       ]
     }
   ],

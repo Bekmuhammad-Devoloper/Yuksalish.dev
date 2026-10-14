@@ -79,7 +79,8 @@ function cleanProject(b) {
     name,
     word: str(b.word, 24) || name.split(/\s+/)[0],
     kind: str(b.kind, 60),
-    desc: str(b.desc, 400),
+    desc: str(b.desc, 600),
+    features: list(b.features, 6).map((f) => str(f, 80)).filter(Boolean),
     status: str(b.status, 40),
     links: list(b.links, 6)
       .map((l) => ({ type: LINK_TYPES.includes(l && l.type) ? l.type : 'site', url: url(l && l.url) }))
