@@ -261,10 +261,10 @@
     },
     {
       "id": "p12",
-      "name": "Farzandim Edu",
-      "word": "Farzandim",
-      "kind": "Veb-sayt",
-      "desc": "Ota-onalar va bolalar uchun ta’lim sayti. Kurslar haqida ma’lumot olib, onlayn ro‘yxatdan o‘tish mumkin.",
+      "name": "Parvoz",
+      "word": "Parvoz",
+      "kind": "Ta’lim platformasi va ilova",
+      "desc": "Bolalar va ota-onalar uchun ta’lim loyihasi: Farzandim Edu sayti va Duyo mobil ilovasi. Kurslar haqida ma’lumot olish, onlayn ro‘yxatdan o‘tish va ilova orqali kundalik foydalanish bitta ekotizimda.",
       "status": "",
       "image": "assets/img/bahor.jpg",
       "pos": "60% 75%",
@@ -273,12 +273,18 @@
         {
           "type": "site",
           "url": "https://farzandimedu.uz"
+        },
+        {
+          "type": "site",
+          "url": "https://duyo.uz"
         }
       ],
       "features": [
         "Kurslar va yo‘nalishlar",
         "Onlayn ro‘yxatdan o‘tish",
-        "Ota-onalar uchun ma’lumotlar"
+        "Android va iOS uchun Duyo ilovasi",
+        "Ota-onalar uchun ma’lumotlar",
+        "Push-bildirishnomalar"
       ]
     },
     {
@@ -367,45 +373,6 @@
         "Operatorlar va tariflarni solishtirish",
         "Chiroyli raqam tanlash",
         "Onlayn buyurtma"
-      ]
-    },
-    {
-      "id": "p17",
-      "name": "Duyo",
-      "word": "Duyo",
-      "kind": "Ilova",
-      "desc": "Kundalik xizmatlarni bir ilovada qulay qiladigan mobil ilova.",
-      "status": "",
-      "image": "assets/img/yoz.jpg",
-      "pos": "50% 70%",
-      "active": true,
-      "links": [
-        {
-          "type": "site",
-          "url": "https://duyo.uz"
-        }
-      ],
-      "features": [
-        "Android va iOS uchun",
-        "Qulay va tez interfeys",
-        "Push-bildirishnomalar"
-      ]
-    },
-    {
-      "id": "p18",
-      "name": "Parvoz",
-      "word": "Parvoz",
-      "kind": "Ilova",
-      "desc": "Parvoz loyihasi uchun mobil ilova: tezkor ishlash va qulay interfeys.",
-      "status": "",
-      "image": "assets/img/kuz.jpg",
-      "pos": "85% 65%",
-      "active": true,
-      "links": [],
-      "features": [
-        "Android va iOS uchun",
-        "Foydalanuvchi profili",
-        "Push-bildirishnomalar"
       ]
     },
     {
