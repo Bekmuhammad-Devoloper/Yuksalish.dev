@@ -171,8 +171,8 @@
       "kind": "Donat platformasi",
       "desc": "Ko‘plab mashhur o‘yinlarga tez va xavfsiz donat qilish platformasi. To‘lov qilingach, o‘yin valyutasi avtomatik yetkaziladi.",
       "status": "",
-      "image": "assets/img/qish.jpg",
-      "pos": "65% 70%",
+      "image": "assets/projects/fastpin.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -191,11 +191,11 @@
       "id": "p9",
       "name": "Vega",
       "word": "Vega",
-      "kind": "Ekotizim platformasi",
-      "desc": "Bir nechta xizmatni yagona hisob va boshqaruv paneliga birlashtirgan ekotizim platformasi.",
+      "kind": "Raqamli mahsulotlar platformasi",
+      "desc": "Raqamli mahsulotlar uchun premium platforma: kriptovalyuta, Telegram raqamlar, Telegram Stars va Premium sotib olish, hamda o‘z onlayn do‘koningizni yaratish — barchasi bitta joyda.",
       "status": "",
-      "image": "assets/img/yoz.jpg",
-      "pos": "35% 55%",
+      "image": "assets/projects/vega.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -204,20 +204,22 @@
         }
       ],
       "features": [
-        "Yagona hisob orqali kirish",
-        "Xizmatlar uchun umumiy boshqaruv paneli",
-        "Rollar va kirish huquqlari"
+        "Kriptovalyuta sotib olish, sotish va almashish",
+        "Turli davlatlarning Telegram raqamlari",
+        "Telegram Stars va Premium tezkor yetkazib berish",
+        "Raqamli mahsulotlar uchun do‘kon yaratish",
+        "Xavfsiz to‘lovlar va 24/7 qo‘llab-quvvatlash"
       ]
     },
     {
       "id": "p10",
       "name": "Sellio Store",
       "word": "Sellio",
-      "kind": "Ekotizim platformasi",
-      "desc": "Sotuvchilar uchun ekotizim: onlayn do‘kon ochish, tovarlarni boshqarish va buyurtmalarni qabul qilish bir joyda.",
+      "kind": "CRM va onlayn do‘kon",
+      "desc": "Do‘kondorlar uchun CRM va onlayn do‘kon: mijozlar, mahsulotlar, ombor va buyurtmalar bitta tizimda boshqariladi, o‘z brendingiz bilan internet do‘kon ham ochiladi.",
       "status": "",
-      "image": "assets/img/kuz.jpg",
-      "pos": "55% 70%",
+      "image": "assets/projects/sellio.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -226,21 +228,22 @@
         }
       ],
       "features": [
-        "Tovarlar katalogi va qoldiqlar",
-        "Buyurtmalar va yetkazish",
-        "Onlayn to‘lovlar",
-        "Savdo statistikasi"
+        "Mijozlar bazasi va xaridlar tarixi",
+        "Buyurtmalar nazorati",
+        "Ombor va mahsulotlar hisobi",
+        "O‘z brendingiz bilan onlayn do‘kon",
+        "Savdo statistikasi va hisobotlar"
       ]
     },
     {
       "id": "p11",
       "name": "Marja Group",
       "word": "Marja",
-      "kind": "Veb-sayt",
-      "desc": "Kompaniya uchun korporativ sayt: faoliyat yo‘nalishlari, xizmatlar va hamkorlik uchun ariza qoldirish.",
+      "kind": "Ta’lim markazlari uchun ERP",
+      "desc": "O‘quv markazlarini to‘liq avtomatlashtiradigan ERP tizimi. Darslar onlayn va jonli o‘tkaziladi, o‘quvchilar, guruhlar, to‘lovlar va moliya bitta platformada boshqariladi.",
       "status": "",
-      "image": "assets/img/qish.jpg",
-      "pos": "30% 60%",
+      "image": "assets/projects/marja.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -249,9 +252,11 @@
         }
       ],
       "features": [
-        "Kompaniya va xizmatlar taqdimoti",
-        "Ariza qoldirish formasi",
-        "Telefon va kompyuterga moslashuvchan dizayn"
+        "O‘quvchilar va guruhlar boshqaruvi",
+        "Onlayn (LMS) va jonli darslar jadvali",
+        "To‘lovlar va moliya hisobi",
+        "Ota-onalarga SMS va Telegram bildirishnomalar",
+        "Hisobotlar va tahlil"
       ]
     },
     {
