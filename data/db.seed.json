@@ -135,8 +135,8 @@
       "kind": "Taksi agregatori",
       "desc": "Qo‘qon shahri uchun taksi agregatori. Mijoz sayt yoki Telegram bot orqali bir necha soniyada taksi chaqiradi.",
       "status": "",
-      "image": "assets/img/kuz.jpg",
-      "pos": "70% 40%",
+      "image": "assets/projects/moviy-taxi.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [],
       "features": [
@@ -153,8 +153,8 @@
       "kind": "Mobil ilova",
       "desc": "Namangan shahridagi ustalar va maishiy xizmatlarni topish ilovasi. Kerakli ustani topib, unga to‘g‘ridan-to‘g‘ri buyurtma berish mumkin.",
       "status": "",
-      "image": "assets/img/yoz.jpg",
-      "pos": "20% 80%",
+      "image": "assets/projects/xizmat24.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [],
       "features": [
