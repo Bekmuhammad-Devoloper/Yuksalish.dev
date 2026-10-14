@@ -748,10 +748,24 @@
 
   const works = $('#ishlar'), track = $('#worksTrack'), worksBar = $('#worksBar');
   const wide = matchMedia('(min-width: 861px)');
+  // Kartalar ekran balandligiga sig‘masa, galereya butunligicha kichrayadi — pastki havolalar kesilmaydi
+  const worksHead = $('.works-head'), worksBarBox = worksBar.parentElement;
+  let worksZoom = 1;
   function sizeWorks() {
+    track.style.zoom = '';
+    worksZoom = 1;
     if (!wide.matches) { works.style.height = ''; return; }
-    works.style.height = (innerHeight + Math.max(0, track.scrollWidth - innerWidth)) + 'px';
+    const pin = track.parentElement, cs = getComputedStyle(pin);
+    const avail = pin.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    const total = worksBarBox.getBoundingClientRect().bottom - worksHead.getBoundingClientRect().top;
+    const th = track.offsetHeight;
+    if (total > avail && th) {
+      worksZoom = Math.max(.55, 1 - (total - avail) / th);
+      track.style.zoom = worksZoom.toFixed(3);
+    }
+    works.style.height = (innerHeight + Math.max(0, trackWidth() - innerWidth)) + 'px';
   }
+  const trackWidth = () => track.scrollWidth * worksZoom;
 
   let lastIdx = -1;
   function updateUI() {
@@ -788,8 +802,8 @@
     if (wide.matches) {
       const wr = works.getBoundingClientRect();
       const wp = clamp(-wr.top / Math.max(1, wr.height - innerHeight), 0, 1);
-      const dist = Math.max(0, track.scrollWidth - innerWidth);
-      track.style.transform = `translate3d(${(-wp * dist).toFixed(1)}px,0,0)`;
+      const dist = Math.max(0, trackWidth() - innerWidth);
+      track.style.transform = `translate3d(${(-wp * dist / worksZoom).toFixed(1)}px,0,0)`;
       worksBar.style.width = (wp * 100).toFixed(2) + '%';
     }
   }

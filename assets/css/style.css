@@ -313,9 +313,9 @@ h2 {
 
 /* ---------- ishlar (gorizontal galereya) ---------- */
 .works { position: relative; }
-.works-pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+.works-pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 64px 0 12px; }
 .works-head { width: var(--col); margin: 0 auto 4vh; }
-.works-head h2 { font-size: clamp(40px, 6vw, 96px); }
+.works-head h2 { font-size: clamp(36px, min(6vw, 8vh), 96px); }
 .works-track { display: flex; gap: clamp(16px, 2vw, 28px); width: max-content; padding: 0 max(var(--gutter), calc((100vw - 1240px) / 2)); will-change: transform; }
 .work {
   flex: none; width: clamp(260px, 26vw, 360px);
