@@ -571,3 +571,16 @@ h2 {
 .work-feats li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 8px; height: 5px; border-left: 1.6px solid var(--gold); border-bottom: 1.6px solid var(--gold); transform: rotate(-45deg); }
 @media (min-width: 1600px) { .work-feats li { font-size: 14.5px; } }
 @media (min-width: 2200px) { .work-feats li { font-size: 16px; } }
+
+/* ixcham loyiha kartochkasi */
+.works-track { align-items: stretch; }
+.work { padding: 6px 6px 14px; }
+.cover { aspect-ratio: 2 / 1; padding: 12px; }
+.work-body { gap: 6px; padding: 14px 10px 0; }
+.work-title { font-size: 22px; }
+.work .work-desc { font-size: 14px; line-height: 1.5; margin-top: 0; }
+.work-feats { margin-top: 4px; padding-top: 10px; gap: 4px; }
+.work-feats li { font-size: 13px; line-height: 1.4; }
+.work-links { padding-top: 12px; }
+.works-head { margin-bottom: 3vh; }
+@media (min-width: 1600px) { .work-title { font-size: 25px; } .work .work-desc { font-size: 15px; } .work-feats li { font-size: 14px; } }
