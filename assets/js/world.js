@@ -899,6 +899,18 @@
   }
   iconize();
 
+  // Bannerlar: muqova bannerning o‘z proporsiyasini oladi — rasm to‘liq, kesilmasdan
+  function fitBanners(root = document) {
+    root.querySelectorAll('.cover.banner:not(.fit)').forEach((c) => {
+      const m = /url\(["']?([^"')]+)["']?\)/.exec(c.style.backgroundImage || '');
+      if (!m) return;
+      const im = new Image();
+      im.onload = () => { c.style.aspectRatio = `${im.naturalWidth} / ${im.naturalHeight}`; c.classList.add('fit'); if (typeof sizeWorks === 'function') { sizeWorks(); measure(); } };
+      im.src = m[1];
+    });
+  }
+  fitBanners();
+
   function projectCard(p, i, all) {
     const links = (p.links || []).filter((l) => safeUrl(l.url));
     const num = `${String(i + 1).padStart(2, '0')}<span>/${String(all.length).padStart(2, '0')}</span>`;
@@ -947,6 +959,7 @@
       loadTeamPhotos();
     }
     iconize();
+    fitBanners();
     sizeWorks(); measure();
   }
   if (location.protocol.startsWith('http')) {

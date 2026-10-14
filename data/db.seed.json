@@ -117,8 +117,8 @@
       "kind": "AI logoped",
       "desc": "Eshitish va nutqida muammosi bor bolalar uchun AI logoped yordamchisi. Ota-onalar uyda ham bola bilan muntazam mashg‘ulot o‘tkaza oladi.",
       "status": "",
-      "image": "assets/img/yoz.jpg",
-      "pos": "30% 60%",
+      "image": "assets/projects/nutq.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [],
       "features": [

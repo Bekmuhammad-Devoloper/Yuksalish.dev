@@ -590,3 +590,8 @@ h2 {
 .cover.banner::before { content: ""; position: absolute; inset: -24px; z-index: -1; height: auto; clip-path: none; transform: none; background-image: inherit; background-size: cover; background-position: center; filter: blur(18px) saturate(1.2) brightness(.7); }
 .cover.banner::after { content: ""; position: absolute; inset: 0; z-index: -1; background-image: inherit; background-size: contain; background-position: center; background-repeat: no-repeat; }
 .work:hover .cover.banner::before { transform: none; }
+
+.cover.banner.fit { background-size: 100% 100%; background-color: transparent; }
+.cover.banner.fit::before, .cover.banner.fit::after { display: none; }
+.cover.banner .cover-num { display: none; }
+.cover.banner { justify-content: flex-end; }
