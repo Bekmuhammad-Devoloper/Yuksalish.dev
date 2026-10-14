@@ -94,13 +94,30 @@
     },
     {
       "id": "p5",
-      "name": "Hilal AI · Nutq yo‘li",
+      "name": "Hilal AI",
       "word": "Hilal AI",
       "kind": "AI bot",
-      "desc": "Eshitish va nutqida muammosi bor bolalar uchun AI logoped yordamchisi. Ota-onalar uyda ham bola bilan muntazam mashg‘ulot o‘tkaza oladi.",
+      "desc": "Sun’iy intellekt asosidagi aqlli yordamchi bot. Foydalanuvchi savollariga tez va tushunarli javob beradi.",
       "status": "",
       "image": "assets/img/bahor.jpg",
       "pos": "75% 45%",
+      "active": true,
+      "links": [],
+      "features": [
+        "LLM asosidagi suhbat",
+        "O‘zbek tilida javoblar",
+        "Telegram orqali foydalanish"
+      ]
+    },
+    {
+      "id": "p24",
+      "name": "Nutq yo‘li",
+      "word": "Nutq yo‘li",
+      "kind": "AI logoped",
+      "desc": "Eshitish va nutqida muammosi bor bolalar uchun AI logoped yordamchisi. Ota-onalar uyda ham bola bilan muntazam mashg‘ulot o‘tkaza oladi.",
+      "status": "",
+      "image": "assets/img/yoz.jpg",
+      "pos": "30% 60%",
       "active": true,
       "links": [],
       "features": [
