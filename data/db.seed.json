@@ -263,11 +263,11 @@
       "id": "p12",
       "name": "Parvoz",
       "word": "Parvoz",
-      "kind": "Ta’lim platformasi va ilova",
-      "desc": "Bolalar va ota-onalar uchun ta’lim loyihasi: Farzandim Edu sayti va Duyo mobil ilovasi. Kurslar haqida ma’lumot olish, onlayn ro‘yxatdan o‘tish va ilova orqali kundalik foydalanish bitta ekotizimda.",
+      "kind": "Ota-onalar nazorati ilovasi",
+      "desc": "Ota-onalarga farzandining xavfsizligini kuzatish va uni to‘g‘ri yo‘lga yo‘naltirish uchun yaratilgan mobil ilova. Farzandingiz har doim ko‘z o‘ngingizda.",
       "status": "",
-      "image": "assets/img/bahor.jpg",
-      "pos": "60% 75%",
+      "image": "assets/projects/parvoz.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -280,22 +280,22 @@
         }
       ],
       "features": [
-        "Kurslar va yo‘nalishlar",
-        "Onlayn ro‘yxatdan o‘tish",
-        "Android va iOS uchun Duyo ilovasi",
-        "Ota-onalar uchun ma’lumotlar",
-        "Push-bildirishnomalar"
+        "Jonli joylashuv va geo-hudud ogohlantirishlari",
+        "Ekran vaqti nazorati va zararli ilovalarni bloklash",
+        "Ota-ona va farzand o‘rtasida chat",
+        "SOS tezkor xabar",
+        "Hisobotlar va ta’limiy kontent (Parvoz Growth)"
       ]
     },
     {
       "id": "p13",
       "name": "Germaniya Live",
       "word": "Germaniya",
-      "kind": "Veb-sayt",
-      "desc": "Germaniyada o‘qish va ishlashni rejalashtirayotganlar uchun ma’lumot va konsultatsiya sayti.",
+      "kind": "O‘quv markazlari uchun ERP",
+      "desc": "Zamonaviy o‘quv markazlarini to‘liq avtomatlashtiradigan ERP tizimi: offlayn va onlayn darslar, o‘quvchilar, moliyaviy hisobotlar va barcha jarayonlar yagona platformada.",
       "status": "",
-      "image": "assets/img/yoz.jpg",
-      "pos": "75% 75%",
+      "image": "assets/projects/germaniya.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -304,20 +304,22 @@
         }
       ],
       "features": [
-        "Hujjatlar va jarayon bo‘yicha qo‘llanmalar",
-        "Konsultatsiyaga yozilish",
-        "Ko‘p beriladigan savollar"
+        "O‘quvchilar va guruhlar boshqaruvi",
+        "Onlayn (LMS) va offlayn darslar jadvali",
+        "To‘lovlar va moliya hisobi",
+        "Imtihonlar va sertifikatlar",
+        "Ota-onalar bilan aloqa"
       ]
     },
     {
       "id": "p14",
       "name": "Imkon Live",
       "word": "Imkon",
-      "kind": "Veb-sayt",
-      "desc": "Imkon loyihasining sayti: xizmatlar taqdimoti va foydalanuvchilardan ariza qabul qilish.",
+      "kind": "Call center va sotuv CRM",
+      "desc": "Imkon CRM — call center va sotuv bo‘limlarini to‘liq avtomatlashtiradigan yechim. Mijozlar, qo‘ng‘iroqlar, bitimlar va natijalar bitta platformada.",
       "status": "",
-      "image": "assets/img/kuz.jpg",
-      "pos": "30% 50%",
+      "image": "assets/projects/imkon.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -326,20 +328,22 @@
         }
       ],
       "features": [
-        "Xizmatlar taqdimoti",
-        "Onlayn ariza",
-        "Moslashuvchan dizayn"
+        "Qo‘ng‘iroqlarni boshqarish va avtomatik taqsimlash",
+        "Mijozlar bazasi va bitimlar",
+        "Sotuvlar va hisobotlar",
+        "Operatorlar nazorati va onlayn kuzatuv",
+        "Vazifalar, eslatmalar va integratsiyalar"
       ]
     },
     {
       "id": "p15",
       "name": "Chinese Wave",
       "word": "Chinese",
-      "kind": "Veb-sayt",
-      "desc": "Xitoy tilini o‘rganish markazi sayti. Kurslar, darajalar va o‘qituvchilar haqida ma’lumot, onlayn ro‘yxatdan o‘tish.",
+      "kind": "Xitoy tili o‘quv platformasi",
+      "desc": "Xitoy tilini o‘rganish uchun to‘liq platforma: onlayn va oflayn darslar, professional ustozlar, interaktiv materiallar, testlar va sertifikatlar — barchasi bitta joyda.",
       "status": "",
-      "image": "assets/img/qish.jpg",
-      "pos": "80% 55%",
+      "image": "assets/projects/chinese.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -348,20 +352,22 @@
         }
       ],
       "features": [
-        "HSK darajalari bo‘yicha kurslar",
-        "O‘qituvchilar haqida ma’lumot",
-        "Onlayn ro‘yxatdan o‘tish"
+        "Onlayn va oflayn jonli darslar",
+        "HSK imtihoniga tayyorlov",
+        "Interaktiv materiallar va testlar",
+        "Natijalar, progress va sertifikatlar",
+        "Veb va mobil ilova"
       ]
     },
     {
       "id": "p16",
       "name": "UZ Simcard",
       "word": "Simcard",
-      "kind": "Veb-sayt",
-      "desc": "O‘zbekiston SIM-kartalari va tariflarini tanlash hamda onlayn buyurtma qilish sayti.",
+      "kind": "Telegram mahsulotlari do‘koni",
+      "desc": "Telegram raqamlar, Premium, Stars va boshqa mahsulotlarni qulay narxlarda, bir necha daqiqada sotib olish mumkin bo‘lgan onlayn do‘kon.",
       "status": "",
-      "image": "assets/img/bahor.jpg",
-      "pos": "35% 40%",
+      "image": "assets/projects/uzsimcard.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -370,9 +376,11 @@
         }
       ],
       "features": [
-        "Operatorlar va tariflarni solishtirish",
-        "Chiroyli raqam tanlash",
-        "Onlayn buyurtma"
+        "Turli davlatlarning Telegram raqamlari",
+        "O‘zbekiston Telegram raqamlari",
+        "Telegram Premium va Stars",
+        "Tezkor topshirish",
+        "Turli to‘lov usullari va 24/7 qo‘llab-quvvatlash"
       ]
     },
     {
