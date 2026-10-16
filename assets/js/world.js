@@ -866,13 +866,14 @@
 
   $('#year').textContent = new Date().getFullYear();
 
-  // Jamoa rasmlari: fayl bo‘lsa ko‘rsatiladi, bo‘lmasa bosh harflar qoladi
+  // Jamoa rasmlari HTML’da darhol ko‘rsatiladi (JS’ga bog‘liq emas); fayl yuklanmasa bosh harflarga qaytamiz
   function loadTeamPhotos() {
     $$('.person-photo[data-photo]').forEach((el) => {
       const src = el.dataset.photo;
       if (!src) return;
+      el.style.backgroundImage = `url("${src}")`; el.style.backgroundPosition = 'center 20%'; el.classList.add('has-photo');
       const probe = new Image();
-      probe.onload = () => { el.style.backgroundImage = `url("${src}")`; el.style.backgroundPosition = 'center 20%'; el.classList.add('has-photo'); };
+      probe.onerror = () => { el.style.backgroundImage = ''; el.classList.remove('has-photo'); };
       probe.src = src;
     });
   }
