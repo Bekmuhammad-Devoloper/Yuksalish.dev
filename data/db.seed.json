@@ -387,35 +387,38 @@
       "id": "p19",
       "name": "Niyat",
       "word": "Niyat",
-      "kind": "Ilova",
-      "desc": "Kundalik niyat va maqsadlarni belgilab, ularni kuzatib borishga yordam beradigan ilova.",
+      "kind": "Islomiy AI ilova",
+      "desc": "Islomiy AI hayot murabbiyi: AI murabbiy, namoz vaqtlari, Qur’on, qibla va shaxsiy maqsadlar — barchasi bitta ilovada. Android uchun bepul va reklamasiz.",
       "status": "",
-      "image": "assets/img/qish.jpg",
-      "pos": "50% 45%",
+      "image": "assets/projects/niyat.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [],
       "features": [
-        "Niyat va maqsadlar ro‘yxati",
-        "Eslatmalar",
-        "Natijalarni kuzatish"
+        "AI murabbiy — savollarga islomiy javoblar",
+        "Namoz vaqtlari va eslatmalar",
+        "Qur’on: o‘qish, tinglash va yodlash",
+        "Qibla yo‘nalishi",
+        "Kunlik niyat va maqsadlar"
       ]
     },
     {
       "id": "p20",
       "name": "KursPay",
       "word": "KursPay",
-      "kind": "Telegram bot",
-      "desc": "Onlayn kurslar uchun Telegram bot. O‘quvchi to‘lov qiladi va bot uni avtomatik ravishda yopiq kanal yoki guruhga qo‘shadi.",
+      "kind": "To‘lov platformasi",
+      "desc": "Onlayn kurslar uchun to‘lov qilishning qulay, tez va xavfsiz platformasi. To‘lovdan so‘ng o‘quvchi yopiq kanal yoki guruhga avtomatik qo‘shiladi.",
       "status": "",
-      "image": "assets/img/bahor.jpg",
-      "pos": "20% 55%",
+      "image": "assets/projects/kurspay.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [],
       "features": [
-        "Avtomatik to‘lov qabul qilish",
-        "Yopiq kanalga avtomatik qo‘shish",
-        "Obuna muddatini nazorat qilish",
-        "Admin uchun hisobotlar"
+        "Click, Payme va Uzum Pay orqali to‘lov",
+        "Humo, Uzcard va bank kartalari",
+        "To‘lovlar tarixi bir joyda",
+        "To‘lov muddatlari haqida eslatmalar",
+        "Xavfsiz tranzaksiyalar"
       ]
     },
     {
@@ -423,10 +426,10 @@
       "name": "Oson turk tili",
       "word": "Turk tili",
       "kind": "Telegram bot",
-      "desc": "Turk tilini qisqa darslar, so‘z boyligi va mashqlar orqali Telegram’da o‘rgatuvchi bot.",
+      "desc": "Hilal Edu tomonidan yaratilgan Telegram bot: turk tilini darslar, testlar va amaliy mashqlar orqali oson va qiziqarli o‘rgatadi, kurs to‘lovlarini ham qabul qiladi.",
       "status": "",
-      "image": "assets/img/yoz.jpg",
-      "pos": "65% 35%",
+      "image": "assets/projects/osonturk.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -435,20 +438,22 @@
         }
       ],
       "features": [
-        "Kunlik qisqa darslar",
-        "So‘z yodlash mashqlari",
-        "Testlar va natijalar"
+        "Video darslar va bosqichma-bosqich kurslar",
+        "Testlar va amaliy mashqlar",
+        "Progress nazorati",
+        "Bot ichida to‘lov qilish",
+        "Kurs yakunida sertifikat"
       ]
     },
     {
       "id": "p22",
       "name": "IT Jobs",
       "word": "IT Jobs",
-      "kind": "Telegram bot",
-      "desc": "IT sohasidagi bo‘sh ish o‘rinlari va rezyumelarni e’lon qiluvchi Telegram bot.",
+      "kind": "IT vakansiyalar platformasi",
+      "desc": "Kompaniyalarga IT mutaxassislarni topish va vakansiya joylashtirish, mutaxassislarga esa orzudagi ishini topish imkonini beruvchi platforma. Telegram bot orqali ham ishlaydi.",
       "status": "",
-      "image": "assets/img/kuz.jpg",
-      "pos": "50% 85%",
+      "image": "assets/projects/itjobs.jpg",
+      "pos": "50% 50%",
       "active": true,
       "links": [
         {
@@ -457,9 +462,11 @@
         }
       ],
       "features": [
-        "Vakansiya joylash",
-        "Rezyume yuborish",
-        "Yo‘nalish bo‘yicha saralash"
+        "Eng so‘nggi IT vakansiyalar",
+        "Rezyumelar bazasi",
+        "Kompaniyalar bilan bog‘lanish",
+        "Tezkor qidiruv va saralash",
+        "Bir necha klikda onlayn ariza"
       ]
     },
     {
@@ -468,11 +475,12 @@
       "word": "Mehrnoma",
       "kind": "Veb-platforma",
       "status": "",
-      "desc": "Yaqinlaringizga iliq tabriklar va taklifnomalarni chiroyli onlayn ko‘rinishda tayyorlab yuborish platformasi.",
+      "desc": "His-tuyg‘ularni unutilmas, shaxsiy va interaktiv sovg‘alarga aylantiradigan platforma: maktub, xotiralar va suratlarni chiroyli sahifaga jamlab, bitta havola orqali yuborasiz.",
       "features": [
-        "Tayyor shablonlar",
-        "Matn va rasmni moslashtirish",
-        "Havola orqali ulashish"
+        "Shaxsiy dizayn",
+        "Xotiralar, suratlar va audio",
+        "Samimiy maktublar",
+        "Bir havolada tayyor — 3 daqiqada"
       ],
       "links": [
         {
@@ -480,8 +488,8 @@
           "url": "https://mehrnomam.uz"
         }
       ],
-      "image": "assets/img/bahor.jpg",
-      "pos": "70% 60%",
+      "image": "assets/projects/mehrnoma.jpg",
+      "pos": "50% 50%",
       "active": true
     }
   ],
