@@ -40,7 +40,7 @@
   }
   $('#loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = e.submitter; btn.disabled = true; $('#loginError').textContent = '';
+    const btn = e.submitter || $('#loginForm button[type=submit]'); btn.disabled = true; $('#loginError').textContent = '';
     try {
       await call('POST', '/api/login', { password: $('#loginPassword').value });
       $('#loginPassword').value = '';
@@ -257,13 +257,13 @@
   $('#editFields').addEventListener('change', async (e) => {
     if (e.target.id !== 'f-file' || !e.target.files[0]) return;
     const file = e.target.files[0];
+    e.target.value = '';           // xuddi shu faylni qayta tanlash ham ishlasin
     if (file.size > 4 * 1024 * 1024) { toast('Rasm 4 MB dan katta bo‘lmasin', true); return; }
-    const data = await new Promise((ok, bad) => { const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = bad; r.readAsDataURL(file); });
     try {
+      const data = await new Promise((ok, bad) => { const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = () => bad(new Error('Faylni o‘qib bo‘lmadi')); r.readAsDataURL(file); });
       const { url } = await call('POST', '/api/admin/upload', { data });
       setImage(url); toast('Rasm yuklandi');
     } catch (err) { toast(err.message, true); }
-    e.target.value = '';
   });
 
   document.querySelectorAll('#editDialog [data-close]').forEach((b) => b.addEventListener('click', () => $('#editDialog').close()));

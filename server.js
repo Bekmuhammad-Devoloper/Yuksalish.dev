@@ -77,7 +77,7 @@ function cleanProject(b) {
   const name = str(b.name, 80, true);
   return {
     name,
-    word: str(b.word, 24) || name.split(/\s+/)[0],
+    word: str(b.word, 24) || name.split(/\s+/)[0].slice(0, 24),
     kind: str(b.kind, 60),
     desc: str(b.desc, 600),
     features: list(b.features, 6).map((f) => str(f, 80)).filter(Boolean),
@@ -164,7 +164,11 @@ function readJson(req, limit) {
       chunks.push(c);
     });
     req.on('end', () => {
-      try { resolve(JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}')); } catch { reject(new BadRequest('JSON noto‘g‘ri')); }
+      let body;
+      try { body = JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}'); } catch { return reject(new BadRequest('JSON noto‘g‘ri')); }
+      // faqat obyekt qabul qilinadi (null, massiv yoki son kelsa body.x murojaatlari 500 berardi)
+      if (!body || typeof body !== 'object' || Array.isArray(body)) return reject(new BadRequest('JSON obyekt kutilgan'));
+      resolve(body);
     });
     req.on('error', reject);
   });
@@ -192,7 +196,9 @@ function serveStatic(req, res, pathname) {
       'Cache-Control': pathname.startsWith('/assets/') ? 'public, max-age=3600' : 'no-cache',
       ...(pathname.startsWith('/admin/') ? { 'X-Frame-Options': 'DENY' } : {}),
     });
-    fs.createReadStream(file).pipe(res);
+    fs.createReadStream(file)
+      .on('error', () => res.destroy())             // o‘qishda xato bo‘lsa server qulamasin
+      .pipe(res);
   });
 }
 
@@ -262,7 +268,9 @@ async function api(req, res, pathname) {
   }
   if (id === 'reorder' && m === 'POST') {
     const { ids } = await readJson(req, 64 * 1024);
-    if (!Array.isArray(ids) || ids.length !== items.length || !ids.every((x) => items.some((i) => i.id === x))) throw new BadRequest('Tartib noto‘g‘ri');
+    // har bir element aynan bir marta bo‘lishi shart (takroriy id’lar boshqa elementlarni o‘chirib yuborardi)
+    if (!Array.isArray(ids) || ids.length !== items.length || new Set(ids).size !== ids.length ||
+      !ids.every((x) => items.some((i) => i.id === x))) throw new BadRequest('Tartib noto‘g‘ri');
     db[coll] = ids.map((x) => items.find((i) => i.id === x)); saveDb();
     return send(res, 200, { ok: true });
   }
@@ -290,7 +298,9 @@ http.createServer(async (req, res) => {
   try {
     if (pathname.startsWith('/api/')) return await api(req, res, pathname);
     if (req.method !== 'GET' && req.method !== 'HEAD') return send(res, 405, 'Ruxsat etilmagan');
-    serveStatic(req, res, decodeURIComponent(pathname));
+    let file;
+    try { file = decodeURIComponent(pathname); } catch { return send(res, 400, 'Noto‘g‘ri manzil'); }
+    serveStatic(req, res, file);
   } catch (e) {
     if (e instanceof BadRequest) return send(res, 400, { error: e.message });
     console.error(e);
