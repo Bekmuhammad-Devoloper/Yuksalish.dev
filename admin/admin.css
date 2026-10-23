@@ -38,7 +38,8 @@ h1, h2, h3 { margin: 0; letter-spacing: -.02em; }
 .icon-btn.danger:hover { border-color: var(--danger); color: var(--danger); }
 
 /* kirish */
-.login { min-height: 100vh; display: grid; place-items: center; padding: 16px; background: radial-gradient(circle at 50% 30%, #1d3778, var(--navy-deep)); }
+/* fon — landingdagi qish manzarasi (cho‘qqi), karta o‘qilishi uchun navy parda */
+.login { min-height: 100vh; display: grid; place-items: center; padding: 16px; background: linear-gradient(rgba(11, 24, 56, .2), rgba(11, 24, 56, .6)), url(../assets/img/qish.jpg) center / cover no-repeat var(--navy-deep); }
 .login-card { color: var(--ink); width: min(380px, 100%); background: var(--surface); border-radius: 18px; padding: 32px; display: grid; gap: 14px; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); }
 .login-mark { width: 44px; height: auto; }
 .login-card h1 { font-size: 24px; }

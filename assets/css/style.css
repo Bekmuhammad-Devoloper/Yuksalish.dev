@@ -29,6 +29,12 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* skrollbar — oq tizim polosasi o‘rniga ingichka navy + shampan-oltin */
+html { scrollbar-width: thin; scrollbar-color: rgba(211, 191, 148, .55) var(--navy-deep); }
+html::-webkit-scrollbar { width: 8px; }
+html::-webkit-scrollbar-track { background: var(--navy-deep); }
+html::-webkit-scrollbar-thumb { background: rgba(211, 191, 148, .55); border-radius: 999px; border: 2px solid var(--navy-deep); }
+html::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
   margin: 0;
