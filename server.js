@@ -182,6 +182,7 @@ const TYPES = {
 };
 function serveStatic(req, res, pathname) {
   if (pathname === '/') pathname = '/index.html';
+  if (pathname === '/favicon.ico') pathname = '/assets/brand/favicon.ico';
   if (pathname === '/admin') { res.writeHead(301, { Location: '/admin/' }); return res.end(); }
   if (pathname === '/admin/') pathname = '/admin/index.html';
   // faqat ochiq papkalar: landing, assets/, admin/ (data/, server.js va boshqalar yopiq)
